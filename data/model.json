@@ -1,0 +1,521 @@
+[
+{
+  "id": "ask",
+  "name": "Mô hình ASK",
+  "criteria": [
+    {
+      "id": "ask_1",
+      "name": "Động lực & Cam kết",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không thể hiện động lực, không rõ ràng về mục tiêu nghề nghiệp."},
+        {"level": "Đạt", "description": "Có động lực nhưng chưa cụ thể, thiếu sự cam kết dài hạn."},
+        {"level": "Khá", "description": "Thể hiện động lực tốt, có định hướng nghề nghiệp rõ ràng."},
+        {"level": "Tốt", "description": "Động lực mạnh mẽ, chủ động tìm kiếm cơ hội phát triển."}
+      ],
+      "questions": [
+        "Điều gì thúc đẩy bạn làm việc mỗi ngày?",
+        "Bạn có thể kể về một lần bạn làm việc vượt xa mong đợi không?",
+        "Bạn có sẵn sàng nhận phản hồi tiêu cực không? Hãy kể một lần bạn nhận phản hồi và cách bạn cải thiện.",
+        "Bạn có từng giúp đỡ đồng nghiệp trong lúc họ gặp khó khăn chưa? Chia sẻ một tình huống cụ thể."
+      ]
+    },
+    {
+      "id": "ask_2",
+      "name": "Thích nghi & Học hỏi",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không sẵn sàng học hỏi, phản kháng với thay đổi."},
+        {"level": "Đạt", "description": "Chấp nhận thay đổi nhưng chưa linh hoạt."},
+        {"level": "Khá", "description": "Chủ động thích nghi với thay đổi và học hỏi từ sai lầm."},
+        {"level": "Tốt", "description": "Linh hoạt, sáng tạo khi đối mặt với thay đổi và nhanh chóng học hỏi."}
+      ],
+      "questions": [
+        "Khi công ty thay đổi chiến lược hoặc quy trình làm việc, bạn thích nghi như thế nào?",
+        "Nếu bạn nhận một nhiệm vụ mà bạn chưa có kinh nghiệm trước đó, bạn sẽ làm gì?",
+        "Bạn có thể kể về một lần bạn phải làm việc ngoài phạm vi trách nhiệm của mình?",
+        "Bạn đã từng làm việc trong một môi trường thay đổi nhanh chưa? Bạn làm thế nào để theo kịp?"
+      ]
+    },
+    {
+      "id": "ask_3",
+      "name": "Giải quyết vấn đề & Ra quyết định",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không đưa ra được cách giải quyết rõ ràng, thiếu logic."},
+        {"level": "Đạt", "description": "Có thể giải quyết vấn đề nhưng cách tiếp cận chưa tối ưu."},
+        {"level": "Khá", "description": "Giải quyết vấn đề hợp lý, có suy nghĩ logic."},
+        {"level": "Tốt", "description": "Phân tích sắc bén, quyết định chính xác và hiệu quả."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn gặp vấn đề khó khăn trong công việc và cách bạn giải quyết nó.",
+        "Khi gặp một quyết định khó khăn, bạn thường cân nhắc yếu tố nào trước?",
+        "Bạn đã bao giờ phải đưa ra một quyết định quan trọng dưới áp lực cao chưa? Hãy mô tả tình huống đó.",
+        "Bạn đã từng gặp một tình huống mà kiến thức chuyên môn của bạn giúp giải quyết vấn đề chưa? Hãy chia sẻ ví dụ cụ thể."
+      ]
+    },
+    {
+      "id": "ask_4",
+      "name": "Giao tiếp & Trình bày",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Diễn đạt khó hiểu, thiếu sự tự tin."},
+        {"level": "Đạt", "description": "Giao tiếp rõ ràng nhưng chưa thuyết phục."},
+        {"level": "Khá", "description": "Giao tiếp tốt, có khả năng thuyết phục."},
+        {"level": "Tốt", "description": "Giao tiếp xuất sắc, có khả năng truyền cảm hứng."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn cần trình bày ý tưởng quan trọng trước nhóm. Bạn đã làm thế nào?",
+        "Khi giao tiếp với đồng nghiệp/cấp trên, bạn làm thế nào để truyền tải thông điệp một cách rõ ràng?",
+        "Bạn có thể đưa ra ví dụ về một lần bạn phải thuyết phục người khác chấp nhận ý kiến của mình không?",
+        "Bạn có thể giải thích một khái niệm phức tạp sao cho người không chuyên cũng hiểu không?"
+      ]
+    },
+    {
+      "id": "ask_5",
+      "name": "Làm việc nhóm & Hợp tác",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Thiếu tinh thần làm việc nhóm, không sẵn sàng hỗ trợ đồng đội."},
+        {"level": "Đạt", "description": "Hợp tác được nhưng chưa chủ động."},
+        {"level": "Khá", "description": "Làm việc nhóm tốt, hỗ trợ đồng đội khi cần."},
+        {"level": "Tốt", "description": "Xuất sắc trong làm việc nhóm, thúc đẩy sự hợp tác và gắn kết."}
+      ],
+      "questions": [
+        "Bạn có thể kể về một lần làm việc nhóm hiệu quả không? Điều gì khiến nhóm bạn thành công?",
+        "Bạn có từng làm việc với một đồng nghiệp khó tính chưa? Bạn đã xử lý ra sao?",
+        "Nếu trong nhóm có một thành viên không đóng góp đủ công sức, bạn sẽ làm gì?",
+        "Hãy mô tả một dự án mà bạn đã lãnh đạo hoặc đóng vai trò quan trọng. Bạn học được gì từ trải nghiệm đó?"
+      ]
+    },
+    {
+      "id": "ask_6",
+      "name": "Quản lý thời gian & Hiệu suất",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Kém trong quản lý thời gian, thường trễ deadline."},
+        {"level": "Đạt", "description": "Có kế hoạch nhưng chưa hiệu quả, đôi khi chậm tiến độ."},
+        {"level": "Khá", "description": "Quản lý thời gian tốt, hoàn thành công việc đúng hạn."},
+        {"level": "Tốt", "description": "Xuất sắc trong việc tối ưu thời gian và nâng cao hiệu suất."}
+      ],
+      "questions": [
+        "Hãy mô tả cách bạn quản lý thời gian để hoàn thành nhiều nhiệm vụ cùng lúc.",
+        "Bạn có kinh nghiệm làm việc với deadline gấp rút không? Hãy kể một ví dụ cụ thể.",
+        "Trong công việc, bạn ưu tiên điều gì: chất lượng hay tốc độ? Vì sao?",
+        "Khi phải làm việc dưới áp lực cao, bạn thường làm gì để giữ hiệu suất tốt?"
+      ]
+    },
+    {
+      "id": "ask_7",
+      "name": "Tư duy sáng tạo & Đổi mới",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Thiếu ý tưởng mới, không có tư duy đổi mới."},
+        {"level": "Đạt", "description": "Đôi khi có ý tưởng nhưng chưa thực tế."},
+        {"level": "Khá", "description": "Đề xuất được những ý tưởng hữu ích."},
+        {"level": "Tốt", "description": "Sáng tạo, có tư duy đổi mới và mang lại giá trị đột phá."}
+      ],
+      "questions": [
+        "Bạn có thể chia sẻ một ý tưởng sáng tạo mà bạn từng đề xuất và áp dụng thành công không?",
+        "Khi gặp vấn đề, bạn có xu hướng làm theo quy trình cũ hay thử nghiệm cách tiếp cận mới? Tại sao?",
+        "Theo bạn, xu hướng quan trọng nhất trong ngành của bạn hiện nay là gì?",
+        "Bạn đã từng thay đổi một quy trình làm việc để đạt hiệu quả cao hơn chưa? Hãy chia sẻ một ví dụ."
+      ]
+    },
+    {
+      "id": "ask_8",
+      "name": "Kiến thức chuyên môn & Kinh nghiệm",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Kiến thức yếu, không có kinh nghiệm thực tế."},
+        {"level": "Đạt", "description": "Kiến thức cơ bản, thiếu ứng dụng thực tế."},
+        {"level": "Khá", "description": "Kiến thức vững, có kinh nghiệm thực tế."},
+        {"level": "Tốt", "description": "Kiến thức chuyên sâu, ứng dụng thực tế hiệu quả."}
+      ],
+      "questions": [
+        "Bạn có thể mô tả những kỹ năng chuyên môn quan trọng nhất trong lĩnh vực của bạn không?",
+        "Bạn có thể chia sẻ một công cụ/phần mềm mà bạn thành thạo và cách bạn sử dụng nó trong công việc không?",
+        "Bạn làm thế nào để cập nhật kiến thức mới và cải thiện kỹ năng chuyên môn?",
+        "Bạn có từng tham gia khóa đào tạo hoặc chứng chỉ nào liên quan đến công việc này không?"
+      ]
+    },
+    {
+      "id": "ask_9",
+      "name": "Định hướng khách hàng & Đối tác",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không quan tâm đến nhu cầu khách hàng."},
+        {"level": "Đạt", "description": "Hiểu khách hàng nhưng chưa xử lý tốt."},
+        {"level": "Khá", "description": "Quan tâm và hỗ trợ khách hàng tốt."},
+        {"level": "Tốt", "description": "Xuất sắc trong chăm sóc khách hàng, tạo quan hệ tốt."}
+      ],
+      "questions": [
+        "Nếu khách hàng phàn nàn về sản phẩm/dịch vụ, bạn sẽ giải quyết ra sao?",
+        "Hãy mô tả một tình huống bạn đã giải quyết thành công nhu cầu hoặc vấn đề của khách hàng.",
+        "Khi giao tiếp với khách hàng, bạn làm thế nào để họ cảm thấy hài lòng?",
+        "Nếu có mâu thuẫn với khách hàng hoặc đối tác, bạn sẽ xử lý như thế nào?"
+      ]
+    },
+    {
+      "id": "ask_10",
+      "name": "Đạo đức & Tinh thần trách nhiệm",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Trốn tránh trách nhiệm, không minh bạch."},
+        {"level": "Đạt", "description": "Có trách nhiệm nhưng đôi khi thiếu cam kết."},
+        {"level": "Khá", "description": "Chịu trách nhiệm với công việc, đáng tin cậy."},
+        {"level": "Tốt", "description": "Đạo đức nghề nghiệp cao, luôn đặt trách nhiệm lên hàng đầu."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn mắc lỗi trong công việc. Bạn đã giải quyết như thế nào?",
+        "Khi nhận được một phản hồi tiêu cực từ cấp trên hoặc đồng nghiệp, bạn sẽ phản ứng ra sao?",
+        "Bạn có thể mô tả một tình huống mà bạn đã thể hiện trách nhiệm cao trong công việc?",
+        "Bạn có hiểu biết gì về công ty và vị trí mà bạn đang ứng tuyển không?"
+      ]
+    }
+  ]
+},
+{
+  "id": "star",
+  "name": "Mô hình STAR",
+  "criteria": [
+    {
+      "id": "star_1",
+      "name": "Mô tả tình huống (Situation)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không nêu rõ tình huống, mơ hồ."},
+        {"level": "Đạt", "description": "Tình huống có thể hiểu nhưng chưa cụ thể."},
+        {"level": "Khá", "description": "Tình huống rõ ràng, có ngữ cảnh cụ thể."},
+        {"level": "Tốt", "description": "Tình huống chi tiết, có tính thuyết phục cao."}
+      ],
+      "questions": [
+        "Hãy kể về một tình huống khó khăn mà bạn từng gặp trong công việc.",
+        "Đã bao giờ bạn gặp một khách hàng/đồng nghiệp khó tính chưa? Hãy mô tả tình huống đó.",
+        "Bạn có thể chia sẻ về một lần nhóm của bạn gặp phải một trở ngại lớn trong dự án không?",
+        "Hãy kể về một lần bạn phải đối mặt với một tình huống không mong muốn tại nơi làm việc.",
+        "Mô tả một lần bạn cảm thấy quá tải với công việc."
+      ]
+    },
+    {
+      "id": "star_2",
+      "name": "Xác định nhiệm vụ (Task)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không làm rõ trách nhiệm cá nhân."},
+        {"level": "Đạt", "description": "Đề cập nhiệm vụ nhưng chưa chi tiết."},
+        {"level": "Khá", "description": "Xác định rõ nhiệm vụ, liên quan đến công việc."},
+        {"level": "Tốt", "description": "Nhiệm vụ được nêu cụ thể, cho thấy vai trò quan trọng."}
+      ],
+      "questions": [
+        "Khi đối mặt với thử thách lớn trong công việc, nhiệm vụ của bạn là gì?",
+        "Hãy kể về một lần bạn được giao một nhiệm vụ ngoài chuyên môn của mình. Bạn đã xử lý thế nào?",
+        "Đã bao giờ bạn phải đảm nhận vai trò lãnh đạo trong một dự án chưa? Nhiệm vụ của bạn là gì?",
+        "Khi nhóm của bạn gặp vấn đề, bạn đã đóng vai trò gì trong việc giải quyết nó?",
+        "Kể về một lần bạn được giao một công việc với deadline rất gấp."
+      ]
+    },
+    {
+      "id": "star_3",
+      "name": "Hành động cụ thể (Action)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không giải thích hoặc hành động không hợp lý."},
+        {"level": "Đạt", "description": "Có nêu hành động nhưng chưa rõ ràng."},
+        {"level": "Khá", "description": "Mô tả hành động logic, phù hợp với tình huống."},
+        {"level": "Tốt", "description": "Hành động chi tiết, có chiến lược tốt."}
+      ],
+      "questions": [
+        "Bạn đã làm gì khi đối mặt với một khách hàng không hài lòng?",
+        "Kể về một lần bạn phải giải quyết mâu thuẫn trong nhóm. Bạn đã hành động như thế nào?",
+        "Đã bao giờ bạn phải làm việc ngoài giờ để hoàn thành dự án chưa? Bạn đã sắp xếp công việc thế nào?",
+        "Hãy chia sẻ cách bạn xử lý một tình huống mà bạn không có đủ nguồn lực để làm việc.",
+        "Khi công việc gặp trục trặc, bạn có chủ động đề xuất giải pháp không? Hãy cho một ví dụ."
+      ]
+    },
+    {
+      "id": "star_4",
+      "name": "Kết quả đạt được (Result)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không có kết quả hoặc kết quả không rõ ràng."},
+        {"level": "Đạt", "description": "Có kết quả nhưng chưa cụ thể, khó đo lường."},
+        {"level": "Khá", "description": "Kết quả rõ ràng, có thể định lượng hoặc mô tả."},
+        {"level": "Tốt", "description": "Kết quả ấn tượng, có số liệu cụ thể minh chứng."}
+      ],
+      "questions": [
+        "Sau khi áp dụng giải pháp của bạn, kết quả đạt được là gì?",
+        "Kể về một lần bạn giúp công ty tiết kiệm chi phí hoặc tăng hiệu suất làm việc.",
+        "Bạn đã bao giờ giúp nhóm cải thiện hiệu suất chưa? Kết quả ra sao?",
+        "Sau khi xử lý một tình huống khó khăn, bạn đã rút ra bài học gì?",
+        "Kể về một dự án thành công mà bạn từng tham gia và đóng góp của bạn."
+      ]
+    },
+    {
+      "id": "star_5",
+      "name": "Tính logic của câu trả lời",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Câu trả lời lộn xộn, thiếu mạch lạc."},
+        {"level": "Đạt", "description": "Câu trả lời có trật tự nhưng chưa rõ ràng."},
+        {"level": "Khá", "description": "Câu trả lời logic, dễ hiểu."},
+        {"level": "Tốt", "description": "Câu trả lời chặt chẽ, thuyết phục cao."}
+      ],
+      "questions": [
+        "Bạn có thể giải thích một vấn đề phức tạp mà bạn từng giải quyết theo cách dễ hiểu không?",
+        "Khi trình bày một ý tưởng với sếp hoặc đồng nghiệp, bạn làm thế nào để họ dễ hiểu?",
+        "Đã bao giờ bạn phải báo cáo một vấn đề quan trọng cho ban lãnh đạo chưa? Hãy mô tả cách bạn trình bày.",
+        "Khi đưa ra quyết định, bạn có dựa trên dữ liệu không? Hãy kể về một ví dụ.",
+        "Khi được giao một nhiệm vụ mới, bạn thường lên kế hoạch như thế nào để thực hiện?"
+      ]
+    },
+    {
+      "id": "star_6",
+      "name": "Kỹ năng giải quyết vấn đề",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không có giải pháp hợp lý."},
+        {"level": "Đạt", "description": "Giải pháp đơn giản nhưng chưa hiệu quả."},
+        {"level": "Khá", "description": "Giải pháp hợp lý, có tư duy phân tích."},
+        {"level": "Tốt", "description": "Giải pháp sáng tạo, tối ưu và thực tiễn cao."}
+      ],
+      "questions": [
+        "Bạn đã bao giờ phải đưa ra quyết định quan trọng trong thời gian ngắn chưa? Hãy kể về trải nghiệm đó.",
+        "Kể về một lần bạn phải tìm ra giải pháp sáng tạo để giải quyết vấn đề.",
+        "Khi gặp thất bại, bạn thường làm gì để rút kinh nghiệm?",
+        "Đã bao giờ bạn xử lý một vấn đề mà bạn không có đủ thông tin không? Bạn đã làm gì?",
+        "Khi nhóm của bạn không thống nhất được giải pháp cho một vấn đề, bạn đã làm gì?"
+      ]
+    },
+    {
+      "id": "star_7",
+      "name": "Kỹ năng giao tiếp",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Trình bày lúng túng, khó hiểu."},
+        {"level": "Đạt", "description": "Trình bày bình thường, chưa thực sự thuyết phục."},
+        {"level": "Khá", "description": "Trình bày rõ ràng, có sức thuyết phục."},
+        {"level": "Tốt", "description": "Trình bày tự tin, chuyên nghiệp, thu hút."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn phải trình bày một ý tưởng quan trọng cho đồng nghiệp hoặc cấp trên.",
+        "Khi bạn gặp một đồng nghiệp hoặc khách hàng không hiểu vấn đề, bạn đã làm gì để giải thích rõ hơn?",
+        "Bạn đã bao giờ phải viết một email quan trọng hoặc báo cáo quan trọng chưa? Hãy mô tả cách bạn viết nó.",
+        "Kể về một lần bạn phải thuyết phục người khác đồng ý với quan điểm của mình.",
+        "Khi có sự hiểu lầm giữa bạn và đồng nghiệp, bạn thường giải quyết thế nào?"
+      ]
+    },
+    {
+      "id": "star_8",
+      "name": "Khả năng thích nghi",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không linh hoạt, bám theo lối mòn."},
+        {"level": "Đạt", "description": "Có khả năng thích nghi nhưng chậm."},
+        {"level": "Khá", "description": "Thích nghi tốt, có thể ứng biến linh hoạt."},
+        {"level": "Tốt", "description": "Rất linh hoạt, chủ động điều chỉnh chiến lược phù hợp."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn phải làm việc trong một môi trường hoàn toàn mới. Bạn đã thích nghi thế nào?",
+        "Khi công ty thay đổi chính sách hoặc quy trình làm việc, bạn đã thích ứng ra sao?",
+        "Đã bao giờ bạn phải làm việc với một công nghệ hoặc phần mềm mới mà bạn chưa từng dùng trước đây chưa? Bạn đã học nó như thế nào?",
+        "Khi nhận một công việc mới hoặc một vai trò mới, bạn làm gì để nhanh chóng bắt nhịp?",
+        "Kể về một tình huống bạn gặp phải sự thay đổi bất ngờ và cách bạn đối phó với nó."
+      ]
+    },
+    {
+      "id": "star_9",
+      "name": "Tinh thần trách nhiệm",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không thể hiện trách nhiệm cá nhân."},
+        {"level": "Đạt", "description": "Nhận trách nhiệm nhưng không rõ ràng."},
+        {"level": "Khá", "description": "Có trách nhiệm, nhận lỗi nếu cần."},
+        {"level": "Tốt", "description": "Chủ động chịu trách nhiệm, dẫn dắt giải quyết vấn đề."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn mắc lỗi trong công việc. Bạn đã xử lý thế nào?",
+        "Khi bạn nhận được một phản hồi tiêu cực từ cấp trên hoặc khách hàng, bạn đã phản ứng thế nào?",
+        "Bạn đã bao giờ chủ động nhận trách nhiệm cho một lỗi không phải do bạn gây ra chưa? Hãy kể về tình huống đó.",
+        "Khi bạn nhận thấy một đồng nghiệp làm sai hoặc vi phạm nguyên tắc, bạn đã làm gì?",
+        "Bạn làm gì để đảm bảo rằng mình luôn hoàn thành công việc đúng hạn và chất lượng?"
+      ]
+    },
+    {
+      "id": "star_10",
+      "name": "Mức độ phù hợp với công việc",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không phù hợp với yêu cầu công việc."},
+        {"level": "Đạt", "description": "Phù hợp một phần, cần đào tạo thêm."},
+        {"level": "Khá", "description": "Khá phù hợp với công việc."},
+        {"level": "Tốt", "description": "Rất phù hợp, có thể đóng góp ngay."}
+      ],
+      "questions": [
+        "Bạn có thể kể về một dự án hoặc nhiệm vụ mà bạn cảm thấy rất yêu thích không? Tại sao?",
+        "Tại sao bạn chọn ngành nghề này? Điều gì khiến bạn đam mê với công việc này?",
+        "Hãy kể về một lần bạn vượt qua khó khăn để đạt được mục tiêu trong công việc.",
+        "Bạn muốn phát triển sự nghiệp của mình theo hướng nào trong 5 năm tới?",
+        "Điều gì khiến bạn nghĩ rằng bạn là một ứng viên phù hợp cho vị trí này?"
+      ]
+    }
+  ]
+},
+{
+  "id": "competency_framework",
+  "name": "Khung 10 năng lực",
+  "criteria": [
+    {
+      "id": "cf_1",
+      "name": "Kỹ năng giao tiếp (Communication)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Diễn đạt kém, không mạch lạc."},
+        {"level": "Đạt", "description": "Giao tiếp trung bình, đôi khi thiếu rõ ràng."},
+        {"level": "Khá", "description": "Trình bày tốt, có tính thuyết phục."},
+        {"level": "Tốt", "description": "Giao tiếp xuất sắc, tác động mạnh đến người nghe."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn phải thuyết trình hoặc trình bày ý tưởng trước một nhóm người. Bạn đã chuẩn bị như thế nào?",
+        "Khi có sự hiểu lầm giữa bạn và đồng nghiệp, bạn thường giải quyết thế nào?",
+        "Hãy mô tả một tình huống mà bạn phải giao tiếp với khách hàng hoặc đối tác khó tính.",
+        "Khi truyền đạt một thông điệp quan trọng, bạn làm gì để đảm bảo mọi người đều hiểu đúng?",
+        "Bạn có kinh nghiệm làm việc trong môi trường đa văn hóa không? Bạn đã điều chỉnh cách giao tiếp như thế nào?"
+      ]
+    },
+    {
+      "id": "cf_2",
+      "name": "Tư duy phản biện & Giải quyết vấn đề (Critical Thinking & Problem-Solving)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không phân tích được vấn đề."},
+        {"level": "Đạt", "description": "Giải pháp đơn giản, thiếu hiệu quả."},
+        {"level": "Khá", "description": "Đưa ra giải pháp hợp lý, có phân tích."},
+        {"level": "Tốt", "description": "Giải pháp sáng tạo, đột phá, có bằng chứng thực tế."}
+      ],
+      "questions": [
+        "Hãy kể về một tình huống khó khăn mà bạn gặp phải và cách bạn giải quyết nó.",
+        "Bạn có từng đối mặt với một vấn đề mà không có giải pháp rõ ràng? Bạn đã tiếp cận nó như thế nào?",
+        "Khi bạn nhận thấy một quy trình làm việc không hiệu quả, bạn đã làm gì?",
+        "Hãy mô tả một lần bạn phải đưa ra quyết định quan trọng với thông tin không đầy đủ.",
+        "Đã bao giờ bạn phải giải quyết một vấn đề khẩn cấp chưa? Bạn đã phản ứng ra sao?"
+      ]
+    },
+    {
+      "id": "cf_3",
+      "name": "Khả năng làm việc nhóm (Teamwork & Collaboration)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không thể hợp tác, gây mâu thuẫn."},
+        {"level": "Đạt", "description": "Hợp tác nhưng chưa chủ động."},
+        {"level": "Khá", "description": "Làm việc nhóm hiệu quả, hỗ trợ đồng đội."},
+        {"level": "Tốt", "description": "Dẫn dắt nhóm, thúc đẩy hiệu suất làm việc."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn làm việc trong một nhóm có xung đột nội bộ. Bạn đã xử lý như thế nào?",
+        "Khi một thành viên trong nhóm không hoàn thành nhiệm vụ đúng thời hạn, bạn sẽ làm gì?",
+        "Bạn thích làm việc độc lập hay theo nhóm hơn? Tại sao?",
+        "Hãy mô tả một tình huống bạn đã đóng vai trò hỗ trợ đồng đội trong công việc.",
+        "Khi làm việc nhóm, bạn thường làm gì để đảm bảo mọi người đều có cơ hội đóng góp ý kiến?"
+      ]
+    },
+    {
+      "id": "cf_4",
+      "name": "Tư duy đổi mới & Sáng tạo (Innovation & Creativity)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không có ý tưởng mới."},
+        {"level": "Đạt", "description": "Một số ý tưởng nhưng thiếu đột phá."},
+        {"level": "Khá", "description": "Có sáng tạo, biết cách áp dụng đổi mới."},
+        {"level": "Tốt", "description": "Tư duy đột phá, liên tục đổi mới."}
+      ],
+      "questions": [
+        "Bạn đã bao giờ nghĩ ra một cách làm việc mới hiệu quả hơn chưa? Hãy kể về trải nghiệm đó.",
+        "Hãy kể về một lần bạn đề xuất một sáng kiến mới tại nơi làm việc.",
+        "Khi gặp một vấn đề lặp đi lặp lại, bạn làm gì để tìm ra cách giải quyết tốt hơn?",
+        "Bạn làm thế nào để khuyến khích sự sáng tạo trong nhóm của mình?",
+        "Khi bạn gặp khó khăn trong việc nghĩ ra ý tưởng mới, bạn thường làm gì?"
+      ]
+    },
+    {
+      "id": "cf_5",
+      "name": "Khả năng lãnh đạo & Ra quyết định (Leadership & Decision-Making)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không thể đưa ra quyết định quan trọng."},
+        {"level": "Đạt", "description": "Ra quyết định nhưng chưa dứt khoát."},
+        {"level": "Khá", "description": "Lãnh đạo tốt, đưa ra quyết định hợp lý."},
+        {"level": "Tốt", "description": "Quyết đoán, truyền cảm hứng và định hướng nhóm."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn đảm nhận vai trò lãnh đạo trong một dự án hoặc nhóm làm việc.",
+        "Khi nhóm của bạn gặp khó khăn, bạn đã làm gì để khuyến khích mọi người?",
+        "Bạn đã bao giờ phải đưa ra một quyết định quan trọng mà không được sự đồng thuận từ mọi người chưa? Bạn đã xử lý như thế nào?",
+        "Bạn mô tả phong cách lãnh đạo của mình như thế nào?",
+        "Khi phải phân công nhiệm vụ trong nhóm, bạn thường dựa trên những yếu tố nào?"
+      ]
+    },
+    {
+      "id": "cf_6",
+      "name": "Khả năng thích nghi (Adaptability & Resilience)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Chậm thích nghi, dễ bỏ cuộc."},
+        {"level": "Đạt", "description": "Có thể thích nghi nhưng mất thời gian."},
+        {"level": "Khá", "description": "Học nhanh, sẵn sàng thay đổi."},
+        {"level": "Tốt", "description": "Thích nghi xuất sắc, chủ động tìm giải pháp."}
+      ],
+      "questions": [
+        "Khi công ty thay đổi chính sách hoặc quy trình làm việc, bạn đã thích nghi ra sao?",
+        "Đã bao giờ bạn phải làm việc với một công nghệ hoặc quy trình hoàn toàn mới chưa? Bạn đã học nó như thế nào?",
+        "Hãy kể về một tình huống bạn phải thay đổi cách tiếp cận do hoàn cảnh thay đổi.",
+        "Khi đối mặt với thất bại, bạn thường làm gì để vượt qua?",
+        "Bạn có kinh nghiệm làm việc trong môi trường áp lực cao không? Bạn đã quản lý căng thẳng như thế nào?"
+      ]
+    },
+    {
+      "id": "cf_7",
+      "name": "Quản lý thời gian & Hiệu suất (Time Management & Productivity)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không quản lý được thời gian, công việc chậm trễ."},
+        {"level": "Đạt", "description": "Hoàn thành công việc nhưng đôi khi chậm tiến độ."},
+        {"level": "Khá", "description": "Hiệu suất tốt, biết ưu tiên công việc."},
+        {"level": "Tốt", "description": "Làm việc năng suất cao, tối ưu thời gian hiệu quả."}
+      ],
+      "questions": [
+        "Khi có nhiều công việc cần hoàn thành trong thời gian ngắn, bạn sẽ ưu tiên như thế nào?",
+        "Hãy kể về một lần bạn phải làm việc với deadline rất gấp. Bạn đã xử lý ra sao?",
+        "Bạn có sử dụng công cụ hoặc phương pháp nào để quản lý thời gian không?",
+        "Khi cảm thấy mất tập trung hoặc trì hoãn công việc, bạn thường làm gì?",
+        "Bạn làm thế nào để duy trì sự cân bằng giữa công việc và cuộc sống cá nhân?"
+      ]
+    },
+    {
+      "id": "cf_8",
+      "name": "Kiến thức chuyên môn (Technical & Functional Expertise)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Thiếu kiến thức nền tảng, không đáp ứng yêu cầu."},
+        {"level": "Đạt", "description": "Biết cơ bản nhưng chưa vững."},
+        {"level": "Khá", "description": "Nắm vững chuyên môn, có thể làm việc độc lập."},
+        {"level": "Tốt", "description": "Thành thạo, có thể hướng dẫn người khác."}
+      ],
+      "questions": [
+        "Bạn có thể mô tả một dự án hoặc nhiệm vụ mà bạn đã thực hiện, trong đó bạn áp dụng kiến thức chuyên môn của mình không?",
+        "Bạn làm gì để cập nhật kiến thức và kỹ năng trong lĩnh vực của mình?",
+        "Hãy kể về một lần bạn hướng dẫn hoặc đào tạo đồng nghiệp về một kỹ năng hoặc công nghệ nào đó.",
+        "Khi gặp một vấn đề kỹ thuật phức tạp, bạn thường tiếp cận như thế nào?",
+        "Bạn có từng tham gia vào một dự án đòi hỏi sự nghiên cứu sâu về chuyên môn không?"
+      ]
+    },
+    {
+      "id": "cf_9",
+      "name": "Định hướng khách hàng & Đối tác (Customer & Stakeholder Orientation)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Không quan tâm đến nhu cầu khách hàng."},
+        {"level": "Đạt", "description": "Hỗ trợ khách hàng nhưng chưa chủ động."},
+        {"level": "Khá", "description": "Thấu hiểu và cung cấp giải pháp phù hợp."},
+        {"level": "Tốt", "description": "Xây dựng mối quan hệ lâu dài, xuất sắc trong chăm sóc khách hàng."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn giúp khách hàng hoặc đối tác giải quyết một vấn đề khó khăn.",
+        "Khi khách hàng không hài lòng với dịch vụ hoặc sản phẩm, bạn sẽ làm gì?",
+        "Bạn đã bao giờ làm việc trong một dự án yêu cầu hợp tác chặt chẽ với đối tác bên ngoài chưa? Hãy kể về trải nghiệm đó.",
+        "Khi phải làm việc với nhiều bên liên quan có lợi ích khác nhau, bạn làm thế nào để đảm bảo sự hài hòa?",
+        "Bạn làm thế nào để xây dựng mối quan hệ bền vững với khách hàng hoặc đối tác?"
+      ]
+    },
+    {
+      "id": "cf_10",
+      "name": "Tinh thần trách nhiệm & Đạo đức nghề nghiệp (Accountability & Ethics)",
+      "levels": [
+        {"level": "Chưa đạt", "description": "Trốn tránh trách nhiệm, làm việc thiếu đạo đức."},
+        {"level": "Đạt", "description": "Có trách nhiệm nhưng chưa chủ động."},
+        {"level": "Khá", "description": "Chủ động nhận trách nhiệm khi cần."},
+        {"level": "Tốt", "description": "Gương mẫu, luôn hành động có đạo đức."}
+      ],
+      "questions": [
+        "Hãy kể về một lần bạn mắc lỗi trong công việc. Bạn đã xử lý thế nào?",
+        "Khi bạn nhận thấy một hành vi thiếu đạo đức trong công việc, bạn sẽ làm gì?",
+        "Bạn làm gì để đảm bảo mình luôn hoàn thành công việc đúng hạn và chất lượng?",
+        "Hãy kể về một tình huống mà bạn phải đưa ra quyết định khó khăn về mặt đạo đức.",
+        "Bạn nghĩ thế nào về tầm quan trọng của đạo đức nghề nghiệp trong công việc?"
+      ]
+    }
+  ]
+}
+
+]

@@ -1,0 +1,892 @@
+{
+    "careers": [
+      {
+        "id": "career_01",
+        "name": "Giáo viên Hóa học",
+        "criteria": [
+          {
+            "id": "criteria_01",
+            "name": "Kiến thức chuyên môn",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Kiến thức hời hợt, không nắm vững các khái niệm cơ bản. Trả lời thiếu chính xác."
+              },
+              {
+                "score": 2,
+                "description": "Có kiến thức cơ bản nhưng còn hạn chế ở các phần nâng cao. Trả lời đúng nhưng chưa sâu."
+              },
+              {
+                "score": 3,
+                "description": "Hiểu rõ kiến thức, có thể giải thích dễ hiểu. Nắm vững cả lý thuyết và bài tập."
+              },
+              {
+                "score": 4,
+                "description": "Kiến thức sâu rộng, có thể giải thích sáng tạo, liên hệ thực tiễn và tư duy phản biện tốt."
+              }
+            ],
+            "questions": [
+              "Bạn có thể giải thích nguyên tắc hoạt động của phương pháp chuẩn độ trong phân tích hóa học không?",
+              "Làm thế nào để giảng dạy khái niệm cân bằng hóa học một cách dễ hiểu cho học sinh lớp 10?",
+              "Hãy nêu các ứng dụng thực tế của phản ứng oxi hóa – khử trong đời sống.",
+              "So sánh ưu và nhược điểm của các phương pháp điều chế kim loại.",
+              "Theo bạn, học sinh thường gặp khó khăn gì khi học về liên kết hóa học? Bạn sẽ giải thích như thế nào?"
+            ]
+          },
+          {
+            "id": "criteria_02",
+            "name": "Kỹ năng sư phạm & phương pháp giảng dạy",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không có phương pháp giảng dạy rõ ràng, thiếu tính sư phạm."
+              },
+              {
+                "score": 2,
+                "description": "Áp dụng một số phương pháp giảng dạy cơ bản nhưng chưa linh hoạt."
+              },
+              {
+                "score": 3,
+                "description": "Sử dụng phương pháp giảng dạy hiệu quả, tạo sự tương tác tốt với học sinh."
+              },
+              {
+                "score": 4,
+                "description": "Vận dụng đa dạng phương pháp giảng dạy hiện đại, tạo động lực mạnh mẽ cho học sinh."
+              }
+            ],
+            "questions": [
+              "Bạn sử dụng phương pháp giảng dạy nào để giúp học sinh hiểu rõ hơn về các phản ứng hóa học?",
+              "Nếu học sinh không tập trung trong giờ học, bạn sẽ làm gì để thu hút sự chú ý của họ?",
+              "Bạn có kinh nghiệm giảng dạy theo mô hình STEM không? Hãy mô tả một bài học Hóa học theo mô hình này.",
+              "Làm thế nào để áp dụng phương pháp dạy học tích cực trong môn Hóa học?",
+              "Nếu học sinh có quan điểm sai lệch về một hiện tượng hóa học, bạn sẽ sửa chữa như thế nào?"
+            ]
+          },
+          {
+            "id": "criteria_03",
+            "name": "Ứng dụng công nghệ trong giảng dạy",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không biết hoặc không có ý định sử dụng công nghệ trong dạy học."
+              },
+              {
+                "score": 2,
+                "description": "Biết một số công cụ hỗ trợ giảng dạy nhưng chưa khai thác hiệu quả."
+              },
+              {
+                "score": 3,
+                "description": "Ứng dụng công nghệ hợp lý, biết cách sử dụng phần mềm hỗ trợ giảng dạy."
+              },
+              {
+                "score": 4,
+                "description": "Sáng tạo trong ứng dụng công nghệ (AI, mô phỏng 3D, VR, thí nghiệm ảo) để nâng cao chất lượng bài giảng."
+              }
+            ],
+            "questions": [
+              "Bạn đã từng sử dụng phần mềm hoặc công cụ AI nào để hỗ trợ giảng dạy Hóa học chưa?",
+              "Làm thế nào để ứng dụng mô phỏng 3D hoặc thực tế ảo vào việc giảng dạy Hóa học?",
+              "Bạn có sử dụng các nền tảng học tập trực tuyến (như Google Classroom, Moodle, Quizizz) để hỗ trợ giảng dạy không?",
+              "Bạn có thể đề xuất một công nghệ mới giúp học sinh học Hóa học hiệu quả hơn không?",
+              "Làm thế nào để đánh giá tác động của công nghệ đến việc tiếp thu kiến thức của học sinh?"
+            ]
+          },
+          {
+            "id": "criteria_04",
+            "name": "Kỹ năng thiết kế bài giảng & giáo án",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Thiếu kỹ năng xây dựng giáo án, không có cấu trúc bài giảng rõ ràng."
+              },
+              {
+                "score": 2,
+                "description": "Giáo án đầy đủ nhưng chưa linh hoạt theo nhu cầu học sinh."
+              },
+              {
+                "score": 3,
+                "description": "Giáo án chặt chẽ, có phương pháp giảng dạy phù hợp với nhiều đối tượng học sinh."
+              },
+              {
+                "score": 4,
+                "description": "Thiết kế bài giảng sáng tạo, tích hợp phương pháp dạy học tiên tiến (STEM, PBL, Blended Learning)."
+              }
+            ],
+            "questions": [
+              "Bạn thường chuẩn bị giáo án như thế nào để đảm bảo bài học hấp dẫn và hiệu quả?",
+              "Khi thiết kế bài học, bạn làm thế nào để đảm bảo học sinh chủ động tiếp thu kiến thức?",
+              "Bạn có thể mô tả cách xây dựng một giáo án tích hợp kỹ năng thực hành không?",
+              "Nếu được yêu cầu thiết kế một buổi học ngoại khóa về hóa học, bạn sẽ tổ chức như thế nào?",
+              "Bạn đánh giá như thế nào về sự thay đổi chương trình giảng dạy Hóa học hiện nay?"
+            ]
+          },
+          {
+            "id": "criteria_05",
+            "name": "Kỹ năng tổ chức thí nghiệm & đảm bảo an toàn",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không có kỹ năng tổ chức thí nghiệm, không quan tâm đến an toàn."
+              },
+              {
+                "score": 2,
+                "description": "Có thể hướng dẫn thí nghiệm nhưng chưa kiểm soát tốt an toàn."
+              },
+              {
+                "score": 3,
+                "description": "Thành thạo trong tổ chức thí nghiệm, đảm bảo an toàn, tạo sự hứng thú cho học sinh."
+              },
+              {
+                "score": 4,
+                "description": "Quản lý phòng thí nghiệm xuất sắc, hướng dẫn chi tiết, phát triển các thí nghiệm sáng tạo."
+              }
+            ],
+            "questions": [
+              "Khi hướng dẫn học sinh làm thí nghiệm, bạn sẽ làm gì để đảm bảo an toàn?",
+              "Hãy mô tả một thí nghiệm Hóa học thú vị mà bạn từng tổ chức cho học sinh.",
+              "Nếu học sinh làm đổ hóa chất trong phòng thí nghiệm, bạn sẽ xử lý như thế nào?",
+              "Làm thế nào để giúp học sinh hiểu được tầm quan trọng của quy tắc an toàn trong phòng thí nghiệm?",
+              "Theo bạn, có những biện pháp nào giúp tối ưu hóa việc tổ chức thực hành hóa học trong điều kiện thiếu trang thiết bị?"
+            ]
+          },
+          {
+            "id": "criteria_06",
+            "name": "Kỹ năng đánh giá & kiểm tra năng lực học sinh",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không có tiêu chí đánh giá rõ ràng, không thể nhận biết học sinh hiểu bài hay không."
+              },
+              {
+                "score": 2,
+                "description": "Đưa ra bài kiểm tra cơ bản nhưng chưa đa dạng, chủ yếu kiểm tra lý thuyết."
+              },
+              {
+                "score": 3,
+                "description": "Xây dựng bài kiểm tra cân bằng giữa lý thuyết và thực hành, đánh giá khách quan."
+              },
+              {
+                "score": 4,
+                "description": "Thiết kế hệ thống đánh giá toàn diện (trắc nghiệm, tự luận, dự án, bài tập tình huống)."
+              }
+            ],
+            "questions": [
+              "Bạn sẽ thiết kế một bài kiểm tra đánh giá năng lực học sinh về chương trình Hóa học lớp 11 như thế nào?",
+              "Làm thế nào để nhận biết học sinh thực sự hiểu bài hay chỉ học thuộc lòng?",
+              "Bạn có áp dụng hình thức đánh giá nào khác ngoài bài kiểm tra viết không?",
+              "Làm sao để đánh giá năng lực tư duy phản biện của học sinh qua môn Hóa học?",
+              "Bạn sẽ xử lý như thế nào nếu phát hiện học sinh gian lận trong bài kiểm tra?"
+            ]
+          },
+          {
+            "id": "criteria_07",
+            "name": "Kỹ năng giao tiếp & tương tác với học sinh",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Thiếu kỹ năng giao tiếp, không tạo được kết nối với học sinh."
+              },
+              {
+                "score": 2,
+                "description": "Giao tiếp tốt nhưng chưa thực sự tạo được động lực cho học sinh."
+              },
+              {
+                "score": 3,
+                "description": "Biết cách khuyến khích học sinh, tạo môi trường học tập tích cực."
+              },
+              {
+                "score": 4,
+                "description": "Truyền cảm hứng mạnh mẽ, có khả năng dẫn dắt học sinh yêu thích môn Hóa."
+              }
+            ],
+            "questions": [
+              "Bạn làm gì để tạo sự hứng thú cho học sinh khi học Hóa học?",
+              "Nếu một học sinh không hiểu bài nhưng ngại hỏi, bạn sẽ làm gì để giúp em ấy?",
+              "Bạn sẽ xử lý thế nào nếu một học sinh có thái độ tiêu cực trong lớp học?",
+              "Làm thế nào để tạo môi trường học tập tích cực và thúc đẩy học sinh trao đổi, thảo luận?",
+              "Nếu phụ huynh học sinh thắc mắc về phương pháp giảng dạy của bạn, bạn sẽ giải thích như thế nào?"
+            ]
+          },
+          {
+            "id": "criteria_08",
+            "name": "Khả năng cá nhân hóa và hỗ trợ học sinh",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không có chiến lược hỗ trợ học sinh yếu kém hoặc nâng cao học sinh giỏi."
+              },
+              {
+                "score": 2,
+                "description": "Có ý thức giúp đỡ học sinh nhưng chưa có phương pháp hiệu quả."
+              },
+              {
+                "score": 3,
+                "description": "Điều chỉnh phương pháp giảng dạy phù hợp với từng học sinh, hỗ trợ cá nhân tốt."
+              },
+              {
+                "score": 4,
+                "description": "Xuất sắc trong việc cá nhân hóa học tập, giúp học sinh phát huy tối đa năng lực."
+              }
+            ],
+            "questions": [
+              "Khi lớp học có học sinh học giỏi và học sinh yếu kém, bạn sẽ dạy như thế nào để tất cả đều hiểu bài?",
+              "Bạn có từng hướng dẫn một học sinh đặc biệt khó khăn trong việc học Hóa học chưa? Hãy chia sẻ cách bạn đã giúp họ.",
+              "Bạn sẽ làm gì nếu một học sinh có năng khiếu đặc biệt về Hóa học?",
+              "Nếu một học sinh mất động lực học tập, bạn sẽ làm gì để giúp họ lấy lại tinh thần?",
+              "Bạn có sử dụng các tài liệu hoặc phương pháp học tập khác nhau để phù hợp với từng học sinh không?"
+            ]
+          },
+          {
+            "id": "criteria_09",
+            "name": "Định hướng phát triển nghề nghiệp & nghiên cứu khoa học",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không có kế hoạch phát triển bản thân, không quan tâm nghiên cứu khoa học."
+              },
+              {
+                "score": 2,
+                "description": "Tham gia một số hoạt động đào tạo nhưng chưa chủ động trong việc nâng cao chuyên môn."
+              },
+              {
+                "score": 3,
+                "description": "Luôn học hỏi, tham gia các khóa đào tạo, có ý tưởng nghiên cứu khoa học."
+              },
+              {
+                "score": 4,
+                "description": "Dẫn dắt nghiên cứu, đổi mới giáo dục, tham gia các dự án học thuật, hội thảo quốc tế."
+              }
+            ],
+            "questions": [
+              "Bạn có tham gia các hội thảo, khóa học nào để nâng cao kỹ năng giảng dạy không?",
+              "Bạn có ý tưởng nào để thực hiện một dự án nghiên cứu khoa học liên quan đến Hóa học và giáo dục không?",
+              "Theo bạn, vai trò của nghiên cứu khoa học trong việc cải thiện phương pháp giảng dạy Hóa học là gì?",
+              "Bạn có từng hướng dẫn học sinh tham gia các cuộc thi nghiên cứu khoa học không? Kết quả ra sao?",
+              "Bạn có kế hoạch phát triển sự nghiệp trong lĩnh vực giáo dục như thế nào trong 5 năm tới?"
+            ]
+          },
+          {
+            "id": "criteria_10",
+            "name": "Tinh thần trách nhiệm & đạo đức nghề nghiệp",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Thiếu trách nhiệm, không tôn trọng quy định nghề nghiệp."
+              },
+              {
+                "score": 2,
+                "description": "Có tinh thần trách nhiệm nhưng đôi khi chưa chủ động trong công việc."
+              },
+              {
+                "score": 3,
+                "description": "Luôn hoàn thành tốt nhiệm vụ, giữ vững đạo đức nghề nghiệp."
+              },
+              {
+                "score": 4,
+                "description": "Xuất sắc trong việc duy trì đạo đức, trách nhiệm cao, có tinh thần cống hiến cho giáo dục."
+              }
+            ],
+            "questions": [
+              "Nếu phát hiện một đồng nghiệp có hành vi vi phạm đạo đức nghề nghiệp, bạn sẽ xử lý như thế nào?",
+              "Điều gì khiến bạn yêu thích nghề giáo viên Hóa học và bạn mong muốn đóng góp gì cho học sinh?",
+              "Khi gặp áp lực trong công việc, bạn có cách nào để duy trì động lực giảng dạy?",
+              "Bạn nghĩ điều quan trọng nhất mà một giáo viên Hóa học cần có là gì?",
+              "Bạn sẽ làm gì để duy trì và phát triển một môi trường học đường thân thiện, công bằng và tôn trọng?"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "career_02",
+        "name": "Chuyên gia Dinh dưỡng",
+        "criteria": [
+          {
+            "id": "criteria_01",
+            "name": "Kiến thức chuyên môn",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Thiếu kiến thức cơ bản về dinh dưỡng."
+              },
+              {
+                "score": 2,
+                "description": "Kiến thức cơ bản nhưng còn thiếu sót trong các lĩnh vực chuyên sâu."
+              },
+              {
+                "score": 3,
+                "description": "Kiến thức vững vàng về dinh dưỡng cơ bản và chuyên sâu."
+              },
+              {
+                "score": 4,
+                "description": "Kiến thức chuyên môn sâu rộng và luôn cập nhật."
+              }
+            ],
+            "questions": [
+              "Bạn có thể giải thích các nhóm chất dinh dưỡng chính và vai trò của chúng trong cơ thể không?",
+              "Bạn thường cập nhật thông tin về dinh dưỡng và các nghiên cứu mới như thế nào?",
+              "Bạn có thể kể tên một số vấn đề dinh dưỡng phổ biến trong cộng đồng hiện nay và cách giải quyết chúng?",
+              "Bạn làm thế nào để áp dụng kiến thức dinh dưỡng vào thực tế trong tư vấn cho khách hàng?",
+              "Bạn hiểu gì về mối quan hệ giữa chế độ ăn uống và các bệnh lý mãn tính như tiểu đường, cao huyết áp?"
+            ]
+          },
+          {
+            "id": "criteria_02",
+            "name": "Kỹ năng đánh giá tình trạng dinh dưỡng",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không thể đánh giá tình trạng dinh dưỡng chính xác."
+              },
+              {
+                "score": 2,
+                "description": "Đánh giá tình trạng dinh dưỡng nhưng thiếu chính xác và đầy đủ."
+              },
+              {
+                "score": 3,
+                "description": "Đánh giá tình trạng dinh dưỡng chính xác và đầy đủ."
+              },
+              {
+                "score": 4,
+                "description": "Đánh giá chuyên sâu, có khả năng dự báo và đưa ra giải pháp tối ưu."
+              }
+            ],
+            "questions": [
+              "Bạn sẽ sử dụng phương pháp nào để đánh giá tình trạng dinh dưỡng của một bệnh nhân mới đến khám?",
+              "Làm thế nào để xác định một chế độ ăn uống không hợp lý ở một khách hàng có nguy cơ béo phì?",
+              "Bạn sẽ làm gì nếu một khách hàng không hợp tác trong việc cung cấp thông tin về thói quen ăn uống của họ?",
+              "Bạn có thể mô tả một lần bạn đã đánh giá sai tình trạng dinh dưỡng của ai đó và cách bạn khắc phục điều đó không?",
+              "Khi nhận thấy dấu hiệu suy dinh dưỡng, bạn sẽ làm gì để can thiệp kịp thời?"
+            ]
+          },
+          {
+            "id": "criteria_03",
+            "name": "Kỹ năng giao tiếp và tư vấn",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Giao tiếp kém, không thể truyền đạt thông tin rõ ràng."
+              },
+              {
+                "score": 2,
+                "description": "Giao tiếp tốt, nhưng chưa có khả năng thuyết phục cao."
+              },
+              {
+                "score": 3,
+                "description": "Giao tiếp hiệu quả, giải thích dễ hiểu và thuyết phục."
+              },
+              {
+                "score": 4,
+                "description": "Giao tiếp xuất sắc, có thể thay đổi hành vi khách hàng."
+              }
+            ],
+            "questions": [
+              "Khi tư vấn dinh dưỡng cho một khách hàng, bạn làm thế nào để giải thích những thay đổi cần thiết mà họ phải thực hiện?",
+              "Làm thế nào để bạn duy trì động lực và sự cam kết của khách hàng trong suốt quá trình thay đổi thói quen ăn uống?",
+              "Bạn sẽ giải thích như thế nào về một chế độ ăn uống phức tạp cho khách hàng không có nền tảng về dinh dưỡng?",
+              "Bạn đã từng gặp phải tình huống khó khăn trong việc thuyết phục khách hàng thay đổi thói quen ăn uống chưa? Bạn đã xử lý như thế nào?",
+              "Khi tư vấn cho một nhóm khách hàng, làm thế nào để bạn đảm bảo rằng mọi người đều hiểu và đồng ý với kế hoạch dinh dưỡng?"
+            ]
+          },
+          {
+            "id": "criteria_04",
+            "name": "Khả năng lập kế hoạch dinh dưỡng",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không thể lập kế hoạch dinh dưỡng phù hợp."
+              },
+              {
+                "score": 2,
+                "description": "Kế hoạch dinh dưỡng đơn giản, chưa tối ưu hóa cho nhu cầu cụ thể."
+              },
+              {
+                "score": 3,
+                "description": "Kế hoạch dinh dưỡng phù hợp với nhu cầu của khách hàng."
+              },
+              {
+                "score": 4,
+                "description": "Kế hoạch dinh dưỡng cá nhân hóa, hiệu quả cao và linh hoạt."
+              }
+            ],
+            "questions": [
+              "Bạn có thể mô tả một kế hoạch dinh dưỡng mà bạn đã xây dựng cho một bệnh nhân bị bệnh tiểu đường?",
+              "Làm thế nào để bạn xây dựng một kế hoạch dinh dưỡng cho một khách hàng có mục tiêu giảm cân trong thời gian ngắn hạn?",
+              "Bạn sẽ làm gì nếu khách hàng của bạn gặp khó khăn trong việc tuân thủ kế hoạch dinh dưỡng mà bạn đã đề ra?",
+              "Khi lập kế hoạch dinh dưỡng cho một bệnh nhân, bạn làm thế nào để điều chỉnh cho phù hợp với tình trạng sức khỏe cụ thể của họ?",
+              "Bạn có thể chia sẻ một trường hợp bạn đã phải điều chỉnh kế hoạch dinh dưỡng sau khi nhận được phản hồi từ khách hàng?"
+            ]
+          },
+          {
+            "id": "criteria_05",
+            "name": "Kỹ năng phân tích và giải quyết",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không thể nhận diện và giải quyết vấn đề dinh dưỡng."
+              },
+              {
+                "score": 2,
+                "description": "Có thể giải quyết vấn đề nhưng chưa đầy đủ hoặc chính xác."
+              },
+              {
+                "score": 3,
+                "description": "Giải quyết vấn đề dinh dưỡng một cách chính xác và hiệu quả."
+              },
+              {
+                "score": 4,
+                "description": "Phân tích và giải quyết vấn đề dinh dưỡng ở mức độ cao, sáng tạo."
+              }
+            ],
+            "questions": [
+              "Khi gặp một khách hàng có nhiều vấn đề dinh dưỡng phức tạp, bạn sẽ bắt đầu từ đâu để tìm ra giải pháp?",
+              "Làm thế nào bạn xác định và giải quyết một vấn đề dinh dưỡng không rõ ràng?",
+              "Bạn sẽ làm gì nếu nhận thấy một trong các khách hàng của bạn không có cải thiện rõ rệt sau khi tuân thủ kế hoạch dinh dưỡng?",
+              "Bạn có thể chia sẻ một lần bạn đã phải đối mặt với một tình huống khó khăn liên quan đến dinh dưỡng và cách bạn giải quyết nó không?",
+              "Khi nhận thấy khách hàng có dấu hiệu thiếu hụt dinh dưỡng nhưng không rõ nguyên nhân, bạn sẽ làm gì?"
+            ]
+          },
+          {
+            "id": "criteria_06",
+            "name": "Hiểu biết về các bệnh lý liên quan đến dinh dưỡng",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không hiểu biết về các bệnh lý liên quan đến dinh dưỡng."
+              },
+              {
+                "score": 2,
+                "description": "Kiến thức cơ bản nhưng thiếu sâu về các bệnh lý cụ thể."
+              },
+              {
+                "score": 3,
+                "description": "Hiểu biết tốt về mối quan hệ giữa dinh dưỡng và các bệnh lý."
+              },
+              {
+                "score": 4,
+                "description": "Kiến thức sâu rộng về bệnh lý và tác động của dinh dưỡng đối với sức khỏe."
+              }
+            ],
+            "questions": [
+              "Bạn hiểu thế nào về tác động của chế độ ăn uống đối với bệnh tim mạch và cách can thiệp dinh dưỡng hiệu quả?",
+              "Bạn có thể chia sẻ một trường hợp bạn đã giúp bệnh nhân cải thiện tình trạng sức khỏe thông qua chế độ dinh dưỡng?",
+              "Làm thế nào để bạn điều chỉnh chế độ ăn uống cho người bị cao huyết áp?",
+              "Bạn có kinh nghiệm tư vấn dinh dưỡng cho bệnh nhân tiểu đường không? Nếu có, bạn có thể chia sẻ cách bạn xây dựng chế độ ăn cho họ?",
+              "Bạn nghĩ sao về mối liên hệ giữa dinh dưỡng và các bệnh lý ung thư?"
+            ]
+          },
+          {
+            "id": "criteria_07",
+            "name": "Sử dụng công nghệ và công cụ hỗ trợ",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không sử dụng các công cụ hỗ trợ hoặc công nghệ hiện đại."
+              },
+              {
+                "score": 2,
+                "description": "Sử dụng một số công cụ nhưng còn hạn chế trong việc áp dụng công nghệ."
+              },
+              {
+                "score": 3,
+                "description": "Sử dụng công cụ và phần mềm hỗ trợ hiệu quả trong công việc."
+              },
+              {
+                "score": 4,
+                "description": "Thành thạo sử dụng các công cụ và công nghệ tiên tiến để tối ưu hóa công việc."
+              }
+            ],
+            "questions": [
+              "Bạn đã từng sử dụng phần mềm hoặc ứng dụng nào để theo dõi tình trạng dinh dưỡng của khách hàng chưa?",
+              "Bạn có thể giới thiệu các công cụ hỗ trợ bạn trong việc xây dựng kế hoạch dinh dưỡng cho khách hàng không?",
+              "Làm thế nào bạn kết hợp công nghệ vào việc giám sát và điều chỉnh chế độ ăn uống của bệnh nhân?",
+              "Bạn có kinh nghiệm sử dụng các công cụ hỗ trợ phân tích dinh dưỡng? Bạn cảm thấy chúng có hữu ích không?",
+              "Nếu bạn phải học một công cụ hoặc phần mềm mới để hỗ trợ công việc của mình, bạn sẽ làm thế nào?"
+            ]
+          },
+          {
+            "id": "criteria_08",
+            "name": "Chăm sóc khách hàng",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không quan tâm đến nhu cầu và cảm nhận của khách hàng."
+              },
+              {
+                "score": 2,
+                "description": "Có chăm sóc khách hàng nhưng chưa tạo được sự gắn kết lâu dài."
+              },
+              {
+                "score": 3,
+                "description": "Chăm sóc khách hàng tận tình và xây dựng mối quan hệ bền vững."
+              },
+              {
+                "score": 4,
+                "description": "Tạo ra trải nghiệm khách hàng xuất sắc, xây dựng lòng tin lâu dài."
+              }
+            ],
+            "questions": [
+              "Bạn sẽ làm gì nếu một khách hàng không hài lòng với kế hoạch dinh dưỡng bạn đưa ra?",
+              "Làm thế nào bạn xây dựng lòng tin và mối quan hệ lâu dài với khách hàng?",
+              "Bạn làm thế nào để đảm bảo rằng khách hàng cảm thấy họ nhận được sự quan tâm và hỗ trợ trong suốt quá trình điều trị dinh dưỡng?",
+              "Bạn đã từng gặp tình huống khó khăn khi khách hàng không tuân thủ kế hoạch dinh dưỡng, và bạn đã xử lý như thế nào?",
+              "Bạn có chiến lược gì để tạo động lực cho khách hàng duy trì thói quen ăn uống lành mạnh lâu dài?"
+            ]
+          },
+          {
+            "id": "criteria_09",
+            "name": "Khả năng làm việc nhóm",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không hợp tác tốt trong môi trường nhóm."
+              },
+              {
+                "score": 2,
+                "description": "Có thể làm việc nhóm nhưng đôi khi thiếu sự phối hợp."
+              },
+              {
+                "score": 3,
+                "description": "Làm việc nhóm hiệu quả, hỗ trợ đồng nghiệp tốt."
+              },
+              {
+                "score": 4,
+                "description": "Làm việc nhóm xuất sắc, có khả năng lãnh đạo và thúc đẩy nhóm phát triển."
+              }
+            ],
+            "questions": [
+              "Bạn có thể mô tả một lần bạn đã hợp tác với các chuyên gia khác trong một nhóm chăm sóc sức khỏe?",
+              "Làm thế nào bạn đảm bảo rằng bạn và các thành viên trong nhóm đều có mục tiêu và phương pháp làm việc thống nhất?",
+              "Bạn sẽ làm gì nếu trong nhóm có sự khác biệt quan điểm về phương pháp điều trị dinh dưỡng?",
+              "Bạn có thể chia sẻ một lần bạn đã làm việc trong nhóm và giúp nhóm giải quyết vấn đề dinh dưỡng hiệu quả không?",
+              "Bạn đánh giá thế nào về vai trò của mình trong một nhóm khi làm việc với các bác sĩ, y tá và các chuyên gia chăm sóc sức khỏe khác?"
+            ]
+          },
+          {
+            "id": "criteria_10",
+            "name": "Đạo đức nghề nghiệp",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không tuân thủ đạo đức nghề nghiệp."
+              },
+              {
+                "score": 2,
+                "description": "Đạo đức nghề nghiệp ở mức độ trung bình, có thể còn sai sót."
+              },
+              {
+                "score": 3,
+                "description": "Tuân thủ đầy đủ các chuẩn mực đạo đức nghề nghiệp."
+              },
+              {
+                "score": 4,
+                "description": "Luôn duy trì đạo đức nghề nghiệp cao, làm gương mẫu cho đồng nghiệp."
+              }
+            ],
+            "questions": [
+              "Bạn sẽ làm gì nếu bạn phát hiện một khách hàng không thực hiện theo đúng lời khuyên dinh dưỡng nhưng họ vẫn muốn bạn giữ bí mật?",
+              "Bạn làm thế nào để đảm bảo tuân thủ đạo đức nghề nghiệp khi tư vấn cho bệnh nhân về chế độ ăn uống?",
+              "Làm thế nào bạn xử lý tình huống khi khách hàng yêu cầu một chế độ dinh dưỡng mà bạn biết là không tốt cho sức khỏe của họ?",
+              "Bạn nghĩ sao về việc quảng cáo các sản phẩm dinh dưỡng không rõ nguồn gốc hoặc có tác dụng phụ?",
+              "Khi làm việc với khách hàng, bạn làm thế nào để giữ sự trung thực và bảo mật thông tin cá nhân của họ?"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "career_03",
+        "name": "Hướng dẫn viên Du lịch",
+        "criteria": [
+          {
+            "id": "criteria_01",
+            "name": "Kiến thức về địa lý và lịch sử",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Chưa có hiểu biết cơ bản về các điểm đến."
+              },
+              {
+                "score": 2,
+                "description": "Có hiểu biết cơ bản về các điểm đến và lịch sử địa phương."
+              },
+              {
+                "score": 3,
+                "description": "Hiểu biết tốt, có thể giải thích chi tiết về các điểm tham quan."
+              },
+              {
+                "score": 4,
+                "description": "Kiến thức sâu rộng, cung cấp thông tin thú vị và hấp dẫn."
+              }
+            ],
+            "questions": [
+              "Bạn có thể mô tả một số địa điểm du lịch nổi tiếng mà bạn yêu thích không?",
+              "Bạn biết gì về lịch sử của các địa danh du lịch trong khu vực này?",
+              "Bạn có thể giới thiệu về các di tích lịch sử quan trọng mà du khách nên biết không?",
+              "Làm thế nào để bạn chuẩn bị thông tin về các điểm tham quan cho chuyến đi?",
+              "Bạn sẽ giải thích như thế nào về sự quan trọng của các di sản văn hóa trong việc thu hút du khách?"
+            ]
+          },
+          {
+            "id": "criteria_02",
+            "name": "Kỹ năng giao tiếp và thuyết trình",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Giao tiếp kém, khó khăn trong việc truyền đạt thông tin."
+              },
+              {
+                "score": 2,
+                "description": "Giao tiếp rõ ràng, dễ hiểu nhưng thiếu sự thuyết phục."
+              },
+              {
+                "score": 3,
+                "description": "Giao tiếp tự tin, có khả năng duy trì sự chú ý của khách."
+              },
+              {
+                "score": 4,
+                "description": "Giao tiếp xuất sắc, thuyết phục và truyền cảm hứng."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          },
+          {
+            "id": "criteria_03",
+            "name": "Kỹ năng quản lý nhóm",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không kiểm soát được nhóm, thiếu tổ chức."
+              },
+              {
+                "score": 2,
+                "description": "Kiểm soát nhóm cơ bản, nhưng thiếu sự chủ động."
+              },
+              {
+                "score": 3,
+                "description": "Quản lý nhóm tốt, khéo léo trong việc giải quyết các tình huống."
+              },
+              {
+                "score": 4,
+                "description": "Quản lý nhóm xuất sắc, tạo không khí thoải mái, hiệu quả."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          },
+          {
+            "id": "criteria_04",
+            "name": "Khả năng giải quyết tình huống",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Chưa có khả năng ứng phó linh hoạt với tình huống."
+              },
+              {
+                "score": 2,
+                "description": "Giải quyết tình huống tốt nhưng thiếu sự sáng tạo."
+              },
+              {
+                "score": 3,
+                "description": "Giải quyết tình huống linh hoạt và hợp lý."
+              },
+              {
+                "score": 4,
+                "description": "Giải quyết tình huống xuất sắc, sáng tạo và hiệu quả."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          },
+          {
+            "id": "criteria_05",
+            "name": "Kiến thức về dịch vụ khách hàng",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không có hiểu biết về dịch vụ khách hàng."
+              },
+              {
+                "score": 2,
+                "description": "Có hiểu biết cơ bản về dịch vụ khách hàng."
+              },
+              {
+                "score": 3,
+                "description": "Hiểu biết sâu về dịch vụ khách hàng và nhu cầu của khách."
+              },
+              {
+                "score": 4,
+                "description": "Hiểu rõ dịch vụ khách hàng, có thể đáp ứng nhu cầu khách hàng khó tính."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          },
+          {
+            "id": "criteria_06",
+            "name": "Sự hiểu biết về các sản phẩm du lịch",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không nắm bắt được các sản phẩm du lịch công ty cung cấp."
+              },
+              {
+                "score": 2,
+                "description": "Hiểu biết cơ bản về các sản phẩm du lịch của công ty."
+              },
+              {
+                "score": 3,
+                "description": "Hiểu biết đầy đủ và có thể tư vấn khách hàng về các gói sản phẩm."
+              },
+              {
+                "score": 4,
+                "description": "Kiến thức phong phú, có thể giới thiệu, tư vấn sản phẩm phù hợp cho mọi khách hàng."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          },
+          {
+            "id": "criteria_07",
+            "name": "Kỹ năng ngoại ngữ",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không thông thạo ngoại ngữ."
+              },
+              {
+                "score": 2,
+                "description": "Biết ít ngoại ngữ, có thể giao tiếp cơ bản."
+              },
+              {
+                "score": 3,
+                "description": "Thông thạo một ngoại ngữ, giao tiếp tốt với khách quốc tế."
+              },
+              {
+                "score": 4,
+                "description": "Thành thạo ngoại ngữ, giao tiếp trôi chảy với khách hàng quốc tế."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          },
+          {
+            "id": "criteria_08",
+            "name": "Tinh thần làm việc nhóm",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Thiếu khả năng làm việc nhóm, có vấn đề trong giao tiếp với đồng nghiệp."
+              },
+              {
+                "score": 2,
+                "description": "Có khả năng làm việc nhóm cơ bản, nhưng thiếu sự hỗ trợ lẫn nhau."
+              },
+              {
+                "score": 3,
+                "description": "Làm việc nhóm tốt, biết chia sẻ công việc và hỗ trợ đồng nghiệp."
+              },
+              {
+                "score": 4,
+                "description": "Làm việc nhóm xuất sắc, chủ động hỗ trợ và phối hợp với các bộ phận khác."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          },
+          {
+            "id": "criteria_09",
+            "name": "Kỹ năng quản lý thời gian",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không tổ chức tốt lịch trình, hay bị trễ."
+              },
+              {
+                "score": 2,
+                "description": "Quản lý thời gian cơ bản, nhưng vẫn có sự thiếu sót trong việc tuân thủ lịch trình."
+              },
+              {
+                "score": 3,
+                "description": "Quản lý thời gian hiệu quả, luôn đúng giờ."
+              },
+              {
+                "score": 4,
+                "description": "Quản lý thời gian xuất sắc, linh hoạt và tổ chức tốt."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          },
+          {
+            "id": "criteria_10",
+            "name": "Đạo đức nghề nghiệp",
+            "levels": [
+              {
+                "score": 1,
+                "description": "Không có trách nhiệm, thiếu trung thực."
+              },
+              {
+                "score": 2,
+                "description": "Đảm bảo trách nhiệm, nhưng thiếu sự chuyên nghiệp trong công việc."
+              },
+              {
+                "score": 3,
+                "description": "Thực hiện công việc với trách nhiệm cao, có đạo đức nghề nghiệp."
+              },
+              {
+                "score": 4,
+                "description": "Đạo đức nghề nghiệp tuyệt vời, làm việc với tinh thần trách nhiệm cao, luôn tuân thủ quy định."
+              }
+            ],
+            "questions": [
+              "Hãy chia sẻ một ví dụ thực tế liên quan đến tiêu chí này?",
+              "Bạn từng gặp thách thức nào về tiêu chí này và giải quyết ra sao?",
+              "Theo bạn yếu tố quan trọng nhất của tiêu chí này là gì?",
+              "Bạn đã từng cải thiện kỹ năng này như thế nào?",
+              "Bạn sẽ làm gì để nâng cao tiêu chí này trong tương lai?"
+            ]
+          }
+        ]
+      }
+    ]
+  }
