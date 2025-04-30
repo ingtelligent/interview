@@ -2,7 +2,17 @@
 let sessionId = null;
 let recognition = null;
 let isRecording = false;
-const API_BASE_URL = 'http://localhost:5000'; // Add this line to define the base URL
+let interviewMode = null; // 'text' or 'voice'
+let interviewTimer = null;
+let interviewSeconds = 0;
+let isMicMuted = false;
+let isCameraOff = true;
+let userInfo = {
+    name: '',
+    age: '',
+    job: ''
+};
+const API_BASE_URL = 'http://localhost:5000'; // Base URL for API
 
 // Initial setup
 document.addEventListener('DOMContentLoaded', function() {
@@ -26,11 +36,25 @@ function initSpeechRecognition() {
 
         recognition.onstart = function() {
             isRecording = true;
-            const listenBtn = document.getElementById('listen-btn');
-            const recordingStatus = document.getElementById('recording-status');
+            // Update the mic button
+            const micButton = document.getElementById('toggle-mic');
+            if (micButton) {
+                micButton.classList.add('pulse-recording');
+                micButton.querySelector('i').className = 'fas fa-microphone-slash';
+            }
             
-            if (listenBtn) listenBtn.style.display = 'none';
-            if (recordingStatus) recordingStatus.style.display = 'flex';
+            // Update the mic status
+            const micStatus = document.getElementById('mic-status-indicator');
+            if (micStatus) {
+                micStatus.textContent = 'Đang ghi âm...';
+                micStatus.parentElement.classList.add('recording');
+            }
+            
+            // Update the next button to show it's for submitting after recording
+            const nextButton = document.getElementById('next-voice-question');
+            if (nextButton) {
+                nextButton.innerHTML = '<i class="fas fa-check-circle"></i> Gửi câu trả lời';
+            }
         };
 
         recognition.onresult = function(event) {
@@ -45,32 +69,158 @@ function initSpeechRecognition() {
                 }
             }
 
-            const answerText = document.getElementById('answer-text');
+            const answerText = document.getElementById('voice-answer-text');
             if (answerText) {
-                answerText.textContent = finalTranscript || interimTranscript;
+                // Append or replace the existing text
+                if (finalTranscript) {
+                    // Append final transcript with a space
+                    const currentText = answerText.textContent || '';
+                    answerText.textContent = currentText + (currentText ? ' ' : '') + finalTranscript;
+                    
+                    // Remove any interim indicator if present
+                    const interimIndicator = document.getElementById('interim-transcript');
+                    if (interimIndicator) {
+                        interimIndicator.remove();
+                    }
+                } else if (interimTranscript) {
+                    // Show interim results as overlay
+                    let interimIndicator = document.getElementById('interim-transcript');
+                    
+                    // Create interim indicator if it doesn't exist
+                    if (!interimIndicator) {
+                        interimIndicator = document.createElement('div');
+                        interimIndicator.id = 'interim-transcript';
+                        interimIndicator.style.position = 'absolute';
+                        interimIndicator.style.bottom = '10px';
+                        interimIndicator.style.left = '15px';
+                        interimIndicator.style.right = '15px';
+                        interimIndicator.style.backgroundColor = 'rgba(52, 152, 219, 0.2)';
+                        interimIndicator.style.borderRadius = '4px';
+                        interimIndicator.style.padding = '8px';
+                        interimIndicator.style.color = '#2980b9';
+                        interimIndicator.style.fontStyle = 'italic';
+                        
+                        // Add it to the voice answer section
+                        const voiceAnswerSection = document.getElementById('voice-answer-section');
+                        if (voiceAnswerSection) {
+                            voiceAnswerSection.style.position = 'relative';
+                            voiceAnswerSection.appendChild(interimIndicator);
+                        }
+                    }
+                    
+                    // Update the text
+                    interimIndicator.textContent = interimTranscript;
+                }
             }
         };
 
         recognition.onend = function() {
-            isRecording = false;
-            const listenBtn = document.getElementById('listen-btn');
-            const recordingStatus = document.getElementById('recording-status');
-            
-            if (listenBtn) listenBtn.style.display = 'flex';
-            if (recordingStatus) recordingStatus.style.display = 'none';
+            // If we're still supposed to be recording, restart the recognition
+            if (isRecording) {
+                try {
+                    recognition.start();
+                } catch (e) {
+                    console.error('Error restarting recognition after onend:', e);
+                    isRecording = false;
+                    
+                    // Update the mic button
+                    const micButton = document.getElementById('toggle-mic');
+                    if (micButton) {
+                        micButton.classList.remove('pulse-recording');
+                        micButton.querySelector('i').className = 'fas fa-microphone';
+                    }
+                    
+                    // Update the mic status
+                    const micStatus = document.getElementById('mic-status-indicator');
+                    if (micStatus) {
+                        micStatus.textContent = 'Ghi âm đã dừng';
+                        micStatus.parentElement.classList.remove('recording');
+                    }
+                }
+            } else {
+                // Normal end of recording
+                const micButton = document.getElementById('toggle-mic');
+                if (micButton) {
+                    micButton.classList.remove('pulse-recording');
+                    micButton.querySelector('i').className = 'fas fa-microphone';
+                }
+                
+                // Update the mic status
+                const micStatus = document.getElementById('mic-status-indicator');
+                if (micStatus) {
+                    micStatus.textContent = 'Ghi âm đã dừng';
+                    micStatus.parentElement.classList.remove('recording');
+                }
+            }
         };
 
         recognition.onerror = function(event) {
             console.error('Speech recognition error:', event.error);
-            isRecording = false;
-            const listenBtn = document.getElementById('listen-btn');
-            const recordingStatus = document.getElementById('recording-status');
             
-            if (listenBtn) listenBtn.style.display = 'flex';
-            if (recordingStatus) recordingStatus.style.display = 'none';
-            
-            if (event.error === 'not-allowed') {
+            // Only change the state if it's a terminal error
+            if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                isRecording = false;
+                
+                // Update the mic button
+                const micButton = document.getElementById('toggle-mic');
+                if (micButton) {
+                    micButton.classList.remove('pulse-recording');
+                    micButton.querySelector('i').className = 'fas fa-microphone';
+                }
+                
+                // Update the mic status
+                const micStatus = document.getElementById('mic-status-indicator');
+                if (micStatus) {
+                    micStatus.textContent = 'Không có quyền truy cập mic';
+                    micStatus.parentElement.classList.remove('recording');
+                }
+                
                 alert('Vui lòng cấp quyền truy cập microphone để sử dụng chức năng phỏng vấn bằng giọng nói.');
+            } else if (event.error === 'network') {
+                // Network errors might be temporary
+                console.warn('Network error occurred with speech recognition');
+                
+                // Update the mic status
+                const micStatus = document.getElementById('mic-status-indicator');
+                if (micStatus) {
+                    micStatus.textContent = 'Lỗi kết nối mạng...';
+                }
+            } else if (event.error === 'aborted') {
+                // We don't need to do anything special for aborted errors
+                console.log('Speech recognition aborted');
+            } else {
+                // For any other errors, try to restart if we're still in recording mode
+                if (isRecording) {
+                    try {
+                        setTimeout(() => {
+                            recognition.start();
+                            
+                            // Update the mic status
+                            const micStatus = document.getElementById('mic-status-indicator');
+                            if (micStatus) {
+                                micStatus.textContent = 'Đang ghi âm...';
+                                micStatus.parentElement.classList.add('recording');
+                            }
+                        }, 1000); // Wait a second before restarting
+                    } catch (e) {
+                        console.error('Error restarting recognition after error:', e);
+                        isRecording = false;
+                        
+                        // Update the mic button
+                        const micButton = document.getElementById('toggle-mic');
+                        if (micButton) {
+                            micButton.classList.remove('pulse-recording');
+                            micButton.querySelector('i').className = 'fas fa-microphone';
+                        }
+                        
+                        // Update the mic status
+                        const micStatus = document.getElementById('mic-status-indicator');
+                        if (micStatus) {
+                            micStatus.textContent = 'Lỗi ghi âm';
+                            micStatus.parentElement.classList.remove('recording');
+                        }
+                    }
+                }
             }
         };
     } else {
@@ -81,7 +231,6 @@ function initSpeechRecognition() {
 // Fetch available careers from the API
 async function fetchCareers() {
     try {
-        // Make sure we have a server running
         const response = await fetch(`${API_BASE_URL}/api/careers`);
         
         if (!response.ok) {
@@ -113,103 +262,237 @@ async function fetchCareers() {
         });
     } catch (error) {
         console.error('Error fetching careers:', error);
-        // No need to alert as we already have hardcoded options
+        // We already have hardcoded options as fallback
     }
 }
 
 // Setup event listeners
 function setupEventListeners() {
-    // Start interview button
-    const startInterviewBtn = document.getElementById('start-interview');
-    if (startInterviewBtn) {
-        startInterviewBtn.addEventListener('click', startInterview);
-    }
+    // Step 1: Information Input Screen
+    document.getElementById('continue-to-mode').addEventListener('click', validateInfoAndContinue);
     
-    // Voice control buttons
-    const listenBtn = document.getElementById('listen-btn');
-    if (listenBtn) {
-        listenBtn.addEventListener('click', toggleSpeechRecognition);
-    }
+    // Step 2: Mode Selection Screen
+    document.getElementById('select-text-mode').addEventListener('click', function() {
+        interviewMode = 'text';
+        document.getElementById('select-text-mode').style.border = '3px solid #3498db';
+        document.getElementById('select-voice-mode').style.border = 'none';
+    });
     
-    const clearAnswerBtn = document.getElementById('clear-answer');
-    if (clearAnswerBtn) {
-        clearAnswerBtn.addEventListener('click', clearAnswer);
-    }
+    document.getElementById('select-voice-mode').addEventListener('click', function() {
+        interviewMode = 'voice';
+        document.getElementById('select-voice-mode').style.border = '3px solid #27ae60';
+        document.getElementById('select-text-mode').style.border = 'none';
+    });
     
-    // Navigation buttons
-    const nextQuestionBtn = document.getElementById('next-question');
-    if (nextQuestionBtn) {
-        nextQuestionBtn.addEventListener('click', submitAnswer);
-    }
+    document.getElementById('start-interview').addEventListener('click', startInterview);
+    document.getElementById('back-to-info').addEventListener('click', function() {
+        switchScreen('info-screen');
+    });
     
-    const finishInterviewBtn = document.getElementById('finish-interview');
-    if (finishInterviewBtn) {
-        finishInterviewBtn.addEventListener('click', finishInterview);
-    }
+    // Chat input event
+    document.getElementById('chat-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendChatMessage();
+        }
+    });
     
-    const restartBtn = document.getElementById('restart');
-    if (restartBtn) {
-        restartBtn.addEventListener('click', restartInterview);
-    }
+    document.getElementById('send-message').addEventListener('click', sendChatMessage);
     
-    const downloadResultBtn = document.getElementById('download-result');
-    if (downloadResultBtn) {
-        downloadResultBtn.addEventListener('click', downloadResults);
-    }
+    // Voice control events
+    document.getElementById('toggle-mic').addEventListener('click', toggleMicrophone);
+    document.getElementById('toggle-camera').addEventListener('click', toggleCamera);
+    document.getElementById('end-interview').addEventListener('click', finishInterview);
+    
+    document.getElementById('clear-voice-answer').addEventListener('click', function() {
+        // Clear the main answer text
+        const answerText = document.getElementById('voice-answer-text');
+        if (answerText) {
+            answerText.textContent = '';
+        }
+        
+        // Remove any interim indicator
+        const interimIndicator = document.getElementById('interim-transcript');
+        if (interimIndicator) {
+            interimIndicator.remove();
+        }
+    });
+    
+    document.getElementById('next-voice-question').addEventListener('click', submitVoiceAnswer);
+    
+    // Finish interview buttons
+    document.getElementById('finish-chat-interview').addEventListener('click', finishInterview);
+    document.getElementById('finish-voice-interview').addEventListener('click', finishInterview);
+    
+    // Result screen buttons
+    document.getElementById('restart').addEventListener('click', restartInterview);
+    document.getElementById('download-result').addEventListener('click', downloadResults);
 }
 
-// Toggle speech recognition
-function toggleSpeechRecognition() {
+// Toggle microphone on/off
+function toggleMicrophone() {
     if (recognition) {
         if (isRecording) {
+            // User wants to stop recording
+            isRecording = false;
             recognition.stop();
+            isMicMuted = true;
+            
+            // Update the mic button
+            const micButton = document.getElementById('toggle-mic');
+            if (micButton) {
+                micButton.classList.remove('pulse-recording');
+                micButton.querySelector('i').className = 'fas fa-microphone';
+            }
+            
+            // Update the mic status
+            const micStatus = document.getElementById('mic-status-indicator');
+            if (micStatus) {
+                micStatus.textContent = 'Ghi âm đã dừng';
+                micStatus.parentElement.classList.remove('recording');
+            }
         } else {
+            // User wants to start recording
             try {
                 recognition.start();
+                isRecording = true;
+                isMicMuted = false;
+                
+                // The status updates will happen in the onstart callback
             } catch (e) {
                 console.error('Error starting recognition:', e);
-                recognition.stop();
+                if (e.name === 'InvalidStateError') {
+                    // The recognition is already started, try stopping first
+                    try {
+                        recognition.stop();
+                        // Wait a moment before trying to restart
+                        setTimeout(() => {
+                            recognition.start();
+                            isRecording = true;
+                            isMicMuted = false;
+                            
+                            // Update the mic button
+                            const micButton = document.getElementById('toggle-mic');
+                            if (micButton) {
+                                micButton.classList.add('pulse-recording');
+                                micButton.querySelector('i').className = 'fas fa-microphone-slash';
+                            }
+                            
+                            // Update the mic status
+                            const micStatus = document.getElementById('mic-status-indicator');
+                            if (micStatus) {
+                                micStatus.textContent = 'Đang ghi âm...';
+                                micStatus.parentElement.classList.add('recording');
+                            }
+                        }, 200);
+                    } catch (innerError) {
+                        console.error('Error during recovery attempt:', innerError);
+                        alert('Không thể bắt đầu nhận dạng giọng nói. Vui lòng tải lại trang và thử lại.');
+                    }
+                } else {
+                    // Some other error
+                    alert('Lỗi khi kích hoạt nhận dạng giọng nói: ' + e.message);
+                }
+            }
+        }
+    } else {
+        // Try to initialize speech recognition again
+        initSpeechRecognition();
+        if (recognition) {
+            try {
+                recognition.start();
+                isRecording = true;
+                isMicMuted = false;
+                
+                // Update the mic button
+                const micButton = document.getElementById('toggle-mic');
+                if (micButton) {
+                    micButton.classList.add('pulse-recording');
+                    micButton.querySelector('i').className = 'fas fa-microphone-slash';
+                }
+                
+                // Update the mic status
+                const micStatus = document.getElementById('mic-status-indicator');
+                if (micStatus) {
+                    micStatus.textContent = 'Đang ghi âm...';
+                    micStatus.parentElement.classList.add('recording');
+                }
+            } catch (e) {
+                console.error('Error starting newly initialized recognition:', e);
+                alert('Không thể bắt đầu nhận dạng giọng nói sau khi khởi tạo lại.');
             }
         }
     }
 }
 
-// Clear answer text
-function clearAnswer() {
-    const answerText = document.getElementById('answer-text');
-    if (answerText) {
-        answerText.textContent = '';
+// Toggle camera on/off
+function toggleCamera() {
+    isCameraOff = !isCameraOff;
+    const cameraButton = document.getElementById('toggle-camera');
+    
+    if (cameraButton) {
+        if (isCameraOff) {
+            cameraButton.querySelector('i').className = 'fas fa-video-slash';
+            cameraButton.style.backgroundColor = '#f8f9fa';
+            cameraButton.style.color = '#95a5a6';
+        } else {
+            cameraButton.querySelector('i').className = 'fas fa-video';
+            cameraButton.style.backgroundColor = 'white';
+            cameraButton.style.color = '#9b59b6';
+        }
+    }
+}
+
+// Validate information and continue to mode selection
+function validateInfoAndContinue() {
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const jobSelect = document.getElementById('job');
+    
+    // Clear previous validation styling
+    nameInput.style.borderColor = '';
+    ageInput.style.borderColor = '';
+    jobSelect.style.borderColor = '';
+    
+    // Validate inputs
+    let isValid = true;
+    
+    if (!nameInput.value.trim()) {
+        nameInput.style.borderColor = '#e74c3c';
+        isValid = false;
+    }
+    
+    if (!ageInput.value || ageInput.value < 18 || ageInput.value > 100) {
+        ageInput.style.borderColor = '#e74c3c';
+        isValid = false;
+    }
+    
+    if (!jobSelect.value) {
+        jobSelect.style.borderColor = '#e74c3c';
+        isValid = false;
+    }
+    
+    if (isValid) {
+        // Store user info
+        userInfo = {
+            name: nameInput.value.trim(),
+            age: parseInt(ageInput.value),
+            job: jobSelect.value
+        };
+        
+        // Update username display on the mode selection screen
+        document.getElementById('user-name-display').textContent = userInfo.name;
+        
+        // Continue to mode selection screen
+        switchScreen('mode-screen');
+    } else {
+        alert('Vui lòng điền đầy đủ thông tin trước khi tiếp tục');
     }
 }
 
 // Start the interview
 async function startInterview() {
-    // Get candidate information
-    const nameInput = document.getElementById('name');
-    const ageInput = document.getElementById('age');
-    const jobSelect = document.getElementById('job');
-    
-    if (!nameInput || !ageInput || !jobSelect) {
-        console.error('Form elements not found');
-        return;
-    }
-    
-    // Validate inputs
-    if (!nameInput.value.trim()) {
-        alert('Vui lòng nhập họ và tên');
-        nameInput.focus();
-        return;
-    }
-    
-    if (!ageInput.value || ageInput.value < 18 || ageInput.value > 100) {
-        alert('Vui lòng nhập tuổi hợp lệ (18-100)');
-        ageInput.focus();
-        return;
-    }
-    
-    if (!jobSelect.value) {
-        alert('Vui lòng chọn nghề nghiệp ứng tuyển');
-        jobSelect.focus();
+    if (!interviewMode) {
+        alert('Vui lòng chọn phương thức phỏng vấn');
         return;
     }
     
@@ -224,9 +507,10 @@ async function startInterview() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: nameInput.value.trim(),
-                age: parseInt(ageInput.value),
-                job: jobSelect.value
+                name: userInfo.name,
+                age: userInfo.age,
+                job: userInfo.job,
+                mode: interviewMode
             })
         });
         
@@ -247,20 +531,12 @@ async function startInterview() {
         // Save session ID
         sessionId = data.session_id;
         
-        
-        const jobTitle = document.getElementById('job-title');
-        const candidateName = document.getElementById('candidate-name');
-        const candidateAge = document.getElementById('candidate-age');
-        
-        if (jobTitle) jobTitle.textContent = jobSelect.value;
-        if (candidateName) candidateName.textContent = nameInput.value.trim();
-        if (candidateAge) candidateAge.textContent = ageInput.value;
-        
-        // Display first question
-        updateQuestion(data);
-        
-        // Switch to interview screen
-        switchScreen('interview-screen');
+        // Update UI based on interview mode
+        if (interviewMode === 'text') {
+            initializeTextInterview(data);
+        } else if (interviewMode === 'voice') {
+            initializeVoiceInterview(data);
+        }
     } catch (error) {
         toggleLoadingIndicator(false);
         console.error('Error starting interview:', error);
@@ -268,57 +544,167 @@ async function startInterview() {
     }
 }
 
-// Update the question display
-function updateQuestion(data) {
-    if (data.complete) {
-        // Interview is complete
-        finishInterview();
+// Send chat message
+function sendChatMessage() {
+    const chatInput = document.getElementById('chat-input');
+    const message = chatInput.value.trim();
+    
+    if (!message) {
         return;
     }
     
-    const currentCriteria = document.getElementById('current-criteria');
-    const currentQuestion = document.getElementById('current-question');
-    const answerText = document.getElementById('answer-text');
+    // Add user message to chat
+    addChatMessage(message, 'user');
     
-    if (currentCriteria) currentCriteria.textContent = data.criteria.name;
+    // Clear input
+    chatInput.value = '';
+    
+    // Submit answer to API
+    submitChatAnswer(message);
+}
+
+// Add message to chat container
+function addChatMessage(message, sender) {
+    const chatContainer = document.getElementById('chat-messages');
+    const messageDiv = document.createElement('div');
+    
+    messageDiv.className = `chat-message ${sender === 'user' ? 'user-message' : 'interviewer-message'}`;
+    
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+    
+    messageDiv.innerHTML = `
+        <div class="message-content">${message}</div>
+        <div class="message-time">${timeString}</div>
+    `;
+    
+    chatContainer.appendChild(messageDiv);
+    
+    // Scroll to bottom
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+// Start interview timer
+function startInterviewTimer() {
+    if (interviewTimer) {
+        clearInterval(interviewTimer);
+    }
+    
+    interviewSeconds = 0;
+    updateTimerDisplay();
+    
+    interviewTimer = setInterval(function() {
+        interviewSeconds++;
+        updateTimerDisplay();
+    }, 1000);
+}
+
+// Update timer display
+function updateTimerDisplay() {
+    const minutes = Math.floor(interviewSeconds / 60);
+    const seconds = interviewSeconds % 60;
+    
+    document.getElementById('interview-timer').textContent = 
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+// Initialize text interview
+function initializeTextInterview(data) {
+    // Update UI elements
+    const jobTitle = document.getElementById('chat-job-title');
+    const candidateName = document.getElementById('chat-candidate-name');
+    const candidateAge = document.getElementById('chat-candidate-age');
+    
+    if (jobTitle) jobTitle.textContent = userInfo.job;
+    if (candidateName) candidateName.textContent = userInfo.name;
+    if (candidateAge) candidateAge.textContent = userInfo.age;
+    
+    // Clear previous chat messages
+    document.getElementById('chat-messages').innerHTML = '';
+    
+    // Add welcome message
+    addChatMessage('Xin chào! Tôi là trợ lý phỏng vấn ảo. Tôi sẽ đặt những câu hỏi để đánh giá kỹ năng và kinh nghiệm của bạn. Hãy trả lời một cách đầy đủ và chân thực nhé.', 'interviewer');
+    
+    // Add first question
+    addChatMessage(data.question, 'interviewer');
+    
+    // Update progress indicators
+    updateProgressIndicators(data, 'chat');
+    
+    // Switch to chat interview screen
+    switchScreen('chat-interview-screen');
+}
+
+// Initialize voice interview
+function initializeVoiceInterview(data) {
+    // Update UI elements
+    const jobTitle = document.getElementById('voice-job-title');
+    const candidateName = document.getElementById('voice-candidate-name');
+    const candidateAge = document.getElementById('voice-candidate-age');
+    const currentQuestion = document.getElementById('current-voice-question');
+    
+    if (jobTitle) jobTitle.textContent = userInfo.job;
+    if (candidateName) candidateName.textContent = userInfo.name;
+    if (candidateAge) candidateAge.textContent = userInfo.age;
     if (currentQuestion) currentQuestion.textContent = data.question;
+    
+    // Clear previous answer
+    const answerText = document.getElementById('voice-answer-text');
     if (answerText) answerText.textContent = '';
     
+    // Remove any interim indicator
+    const interimIndicator = document.getElementById('interim-transcript');
+    if (interimIndicator) {
+        interimIndicator.remove();
+    }
+    
+    // Reset microphone status indicator
+    const micStatus = document.getElementById('mic-status-indicator');
+    if (micStatus) {
+        micStatus.textContent = 'Chưa bắt đầu ghi âm';
+        micStatus.parentElement.classList.remove('recording');
+    }
+    
+    // Update progress indicators
+    updateProgressIndicators(data, 'voice');
+    
+    // Start interview timer
+    startInterviewTimer();
+    
+    // Switch to voice interview screen
+    switchScreen('voice-interview-screen');
+}
+
+// Update progress indicators
+function updateProgressIndicators(data, prefix) {
     // Update progress indicators
     const criteriaIndex = data.progress.criteria_index + 1;
     const criteriaTotal = data.progress.criteria_total;
     const progressPercentage = (criteriaIndex / criteriaTotal) * 100;
     
-    const currentCriteriaNumber = document.getElementById('current-criteria-number');
-    const totalCriteriaNumber = document.getElementById('total-criteria-number');
-    const interviewProgress = document.getElementById('interview-progress');
+    const currentCriteriaNumber = document.getElementById(`${prefix}-current-criteria-number`);
+    const totalCriteriaNumber = document.getElementById(`${prefix}-total-criteria-number`);
+    const interviewProgress = document.getElementById(`${prefix}-interview-progress`);
     
     if (currentCriteriaNumber) currentCriteriaNumber.textContent = criteriaIndex;
     if (totalCriteriaNumber) totalCriteriaNumber.textContent = criteriaTotal;
     if (interviewProgress) interviewProgress.style.width = `${progressPercentage}%`;
 }
 
-// Submit answer and move to next question
-async function submitAnswer() {
+// Submit chat answer
+async function submitChatAnswer(message) {
     if (!sessionId) {
         alert('Phiên phỏng vấn không hợp lệ. Vui lòng bắt đầu lại.');
         return;
     }
     
-    const answerText = document.getElementById('answer-text');
-    if (!answerText) {
-        console.error('Answer text element not found');
-        return;
-    }
-    
-    const answer = answerText.textContent.trim();
-    if (!answer) {
-        alert('Vui lòng trả lời câu hỏi hiện tại trước khi chuyển tiếp.');
+    if (!message.trim()) {
+        alert('Vui lòng nhập câu trả lời.');
         return;
     }
     
     try {
-        // Show loading indicator - AI evaluation takes time
+        // Show loading indicator
         toggleLoadingIndicator(true, 'Đang đánh giá câu trả lời...');
         
         const response = await fetch(`${API_BASE_URL}/api/submit-answer`, {
@@ -328,7 +714,8 @@ async function submitAnswer() {
             },
             body: JSON.stringify({
                 session_id: sessionId,
-                answer: answer
+                answer: message,
+                mode: 'text'
             })
         });
         
@@ -346,8 +733,123 @@ async function submitAnswer() {
             return;
         }
         
+        // Check if interview is complete
+        if (data.complete) {
+            addChatMessage('Cảm ơn bạn! Buổi phỏng vấn đã kết thúc. Hệ thống sẽ tổng hợp kết quả.', 'interviewer');
+            setTimeout(() => finishInterview(), 2000);
+            return;
+        }
+        
+        // Add next question to chat
+        addChatMessage(data.question, 'interviewer');
+        
+        // Update progress indicators
+        updateProgressIndicators(data, 'chat');
+    } catch (error) {
+        toggleLoadingIndicator(false);
+        console.error('Error submitting answer:', error);
+        alert('Không thể gửi câu trả lời. Vui lòng thử lại.');
+    }
+}
+
+// Submit voice answer
+async function submitVoiceAnswer() {
+    const answerText = document.getElementById('voice-answer-text');
+    if (!answerText) {
+        console.error('Answer text element not found');
+        return;
+    }
+    
+    const answer = answerText.textContent.trim();
+    if (!answer) {
+        alert('Vui lòng trả lời câu hỏi trước khi tiếp tục.');
+        return;
+    }
+    
+    try {
+        // Stop recording if active
+        if (recognition) {
+            try {
+                if (isRecording) {
+                    isRecording = false;
+                    recognition.stop();
+                    
+                    // Update the mic button
+                    const micButton = document.getElementById('toggle-mic');
+                    if (micButton) {
+                        micButton.classList.remove('pulse-recording');
+                        micButton.querySelector('i').className = 'fas fa-microphone';
+                    }
+                    
+                    // Update the mic status
+                    const micStatus = document.getElementById('mic-status-indicator');
+                    if (micStatus) {
+                        micStatus.textContent = 'Chờ câu hỏi tiếp theo...';
+                        micStatus.parentElement.classList.remove('recording');
+                    }
+                }
+            } catch (e) {
+                console.error('Error stopping recognition during submit:', e);
+            }
+        }
+        
+        // Show loading indicator
+        toggleLoadingIndicator(true, 'Đang đánh giá câu trả lời...');
+        
+        const response = await fetch(`${API_BASE_URL}/api/submit-answer`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                session_id: sessionId,
+                answer: answer,
+                mode: 'voice'
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Server responded with status ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Hide loading indicator
+        toggleLoadingIndicator(false);
+        
+        if (data.error) {
+            alert(data.error);
+            return;
+        }
+        
+        // Check if interview is complete
+        if (data.complete) {
+            document.getElementById('current-voice-question').textContent = 'Phỏng vấn đã kết thúc! Cảm ơn bạn đã tham gia.';
+            setTimeout(() => finishInterview(), 1500);
+            return;
+        }
+        
         // Update question
-        updateQuestion(data);
+        document.getElementById('current-voice-question').textContent = data.question;
+        
+        // Clear answer
+        answerText.textContent = '';
+        
+        // Clear any interim transcripts
+        const interimIndicator = document.getElementById('interim-transcript');
+        if (interimIndicator) {
+            interimIndicator.remove();
+        }
+        
+        // Reset the mic status
+        const micStatus = document.getElementById('mic-status-indicator');
+        if (micStatus) {
+            micStatus.textContent = 'Chưa bắt đầu ghi âm';
+            micStatus.parentElement.classList.remove('recording');
+        }
+        
+        // Update progress indicators
+        updateProgressIndicators(data, 'voice');
     } catch (error) {
         toggleLoadingIndicator(false);
         console.error('Error submitting answer:', error);
@@ -363,6 +865,35 @@ async function finishInterview() {
     }
     
     try {
+        // Stop recording if active
+        if (recognition) {
+            try {
+                recognition.stop();
+                isRecording = false;
+                
+                // Update the mic button
+                const micButton = document.getElementById('toggle-mic');
+                if (micButton) {
+                    micButton.classList.remove('pulse-recording');
+                    micButton.querySelector('i').className = 'fas fa-microphone';
+                }
+                
+                // Update the mic status
+                const micStatus = document.getElementById('mic-status-indicator');
+                if (micStatus) {
+                    micStatus.textContent = 'Phỏng vấn đã kết thúc';
+                    micStatus.parentElement.classList.remove('recording');
+                }
+            } catch (e) {
+                console.error('Error stopping recognition during interview finish:', e);
+            }
+        }
+        
+        // Stop timer if running
+        if (interviewTimer) {
+            clearInterval(interviewTimer);
+        }
+        
         // Show loading indicator
         toggleLoadingIndicator(true, 'Đang hoàn thành phỏng vấn và tạo báo cáo...');
         
@@ -394,13 +925,15 @@ async function finishInterview() {
         const resultName = document.getElementById('result-name');
         const resultAge = document.getElementById('result-age');
         const resultJob = document.getElementById('result-job');
+        const resultMode = document.getElementById('result-mode');
         const totalScore = document.getElementById('total-score');
         const maxScore = document.getElementById('max-score');
         const totalScoreFill = document.getElementById('total-score-fill');
         
-        if (resultName) resultName.textContent = results.candidate.name;
-        if (resultAge) resultAge.textContent = results.candidate.age;
-        if (resultJob) resultJob.textContent = results.candidate.job;
+        if (resultName) resultName.textContent = userInfo.name;
+        if (resultAge) resultAge.textContent = userInfo.age;
+        if (resultJob) resultJob.textContent = userInfo.job;
+        if (resultMode) resultMode.textContent = interviewMode === 'text' ? 'Chat' : 'Giọng nói';
         if (totalScore) totalScore.textContent = results.total_score;
         if (maxScore) maxScore.textContent = results.max_score;
         
@@ -502,12 +1035,19 @@ function toggleLoadingIndicator(show, message = 'Đang xử lý...') {
 
 // Switch between screens
 function switchScreen(screenId) {
-    const screens = document.querySelectorAll('.screen');
-    if (screens.length === 0) {
-        console.error('No screen elements found');
-        return;
+    // If we're leaving the voice-interview-screen, ensure recording is stopped
+    const currentVoiceScreen = document.getElementById('voice-interview-screen');
+    if (currentVoiceScreen && currentVoiceScreen.classList.contains('active') && 
+        screenId !== 'voice-interview-screen' && recognition) {
+        try {
+            recognition.stop();
+            isRecording = false;
+        } catch (e) {
+            console.error('Error stopping recognition during screen switch:', e);
+        }
     }
     
+    const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => {
         screen.classList.remove('active');
     });
@@ -524,18 +1064,60 @@ function switchScreen(screenId) {
 function restartInterview() {
     // Reset session
     sessionId = null;
+    interviewMode = null;
     
-    // Reset form
-    const nameInput = document.getElementById('name');
-    const ageInput = document.getElementById('age');
-    const jobSelect = document.getElementById('job');
+    // Stop timer if running
+    if (interviewTimer) {
+        clearInterval(interviewTimer);
+        interviewTimer = null;
+    }
     
-    if (nameInput) nameInput.value = '';
-    if (ageInput) ageInput.value = '';
-    if (jobSelect) jobSelect.value = '';
+    // Ensure speech recognition is stopped
+    if (recognition) {
+        try {
+            recognition.stop();
+            isRecording = false;
+            
+            // Update the mic button
+            const micButton = document.getElementById('toggle-mic');
+            if (micButton) {
+                micButton.classList.remove('pulse-recording');
+                micButton.querySelector('i').className = 'fas fa-microphone';
+            }
+            
+            // Update the mic status
+            const micStatus = document.getElementById('mic-status-indicator');
+            if (micStatus) {
+                micStatus.textContent = 'Chưa bắt đầu ghi âm';
+                micStatus.parentElement.classList.remove('recording');
+            }
+            
+            // Clear any interim transcript
+            const interimIndicator = document.getElementById('interim-transcript');
+            if (interimIndicator) {
+                interimIndicator.remove();
+            }
+        } catch (e) {
+            console.error('Error stopping recognition during restart:', e);
+        }
+    }
     
-    // Switch to start screen
-    switchScreen('start-screen');
+    // Reset mode selection styling
+    document.getElementById('select-text-mode').style.border = 'none';
+    document.getElementById('select-voice-mode').style.border = 'none';
+    
+    // Reset mode buttons
+    if (document.getElementById('toggle-mic')) {
+        document.getElementById('toggle-mic').classList.remove('pulse-recording');
+        document.getElementById('toggle-mic').querySelector('i').className = 'fas fa-microphone';
+    }
+    
+    if (document.getElementById('toggle-camera')) {
+        document.getElementById('toggle-camera').querySelector('i').className = 'fas fa-video';
+    }
+    
+    // Switch to starting screen
+    switchScreen('info-screen');
 }
 
 // Download results as text file
@@ -543,6 +1125,7 @@ function downloadResults() {
     const resultName = document.getElementById('result-name');
     const resultAge = document.getElementById('result-age');
     const resultJob = document.getElementById('result-job');
+    const resultMode = document.getElementById('result-mode');
     const totalScore = document.getElementById('total-score');
     const maxScore = document.getElementById('max-score');
     const evaluationText = document.getElementById('evaluation-text');
@@ -555,6 +1138,7 @@ function downloadResults() {
     const name = resultName.textContent;
     const age = resultAge.textContent;
     const job = resultJob.textContent;
+    const mode = resultMode.textContent;
     const score = totalScore.textContent;
     const max = maxScore.textContent;
     const evaluation = evaluationText.textContent;
@@ -564,7 +1148,8 @@ function downloadResults() {
     resultText += `Thông tin ứng viên:\n`;
     resultText += `- Họ và tên: ${name}\n`;
     resultText += `- Tuổi: ${age}\n`;
-    resultText += `- Vị trí ứng tuyển: ${job}\n\n`;
+    resultText += `- Vị trí ứng tuyển: ${job}\n`;
+    resultText += `- Phương thức phỏng vấn: ${mode}\n\n`;
     resultText += `Kết quả đánh giá:\n`;
     resultText += `- Tổng điểm: ${score}/${max}\n\n`;
     
