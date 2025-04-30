@@ -247,7 +247,7 @@ async function startInterview() {
         // Save session ID
         sessionId = data.session_id;
         
-        // Update UI
+        
         const jobTitle = document.getElementById('job-title');
         const candidateName = document.getElementById('candidate-name');
         const candidateAge = document.getElementById('candidate-age');
