@@ -143,7 +143,20 @@
     padding: 8px 16px;
     font-size: 14px;
   }
-  
+  .input-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    gap: 10px; /* Thêm khoảng cách giữa các nút */
+}
+
+.input-actions .btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Khoảng cách giữa biểu tượng và văn bản */
+}
   #interview-controls,
   #result-controls {
     display: flex;

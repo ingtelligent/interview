@@ -268,64 +268,50 @@ async function fetchCareers() {
 
 // Setup event listeners
 function setupEventListeners() {
-    // Step 1: Information Input Screen
+    // Các sự kiện hiện có...
     document.getElementById('continue-to-mode').addEventListener('click', validateInfoAndContinue);
-    
-    // Step 2: Mode Selection Screen
     document.getElementById('select-text-mode').addEventListener('click', function() {
         interviewMode = 'text';
         document.getElementById('select-text-mode').style.border = '3px solid #3498db';
         document.getElementById('select-voice-mode').style.border = 'none';
     });
-    
     document.getElementById('select-voice-mode').addEventListener('click', function() {
         interviewMode = 'voice';
         document.getElementById('select-voice-mode').style.border = '3px solid #27ae60';
         document.getElementById('select-text-mode').style.border = 'none';
     });
-    
     document.getElementById('start-interview').addEventListener('click', startInterview);
     document.getElementById('back-to-info').addEventListener('click', function() {
         switchScreen('info-screen');
     });
-    
-    // Chat input event
     document.getElementById('chat-input').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             sendChatMessage();
         }
     });
-    
     document.getElementById('send-message').addEventListener('click', sendChatMessage);
-    
-    // Voice control events
     document.getElementById('toggle-mic').addEventListener('click', toggleMicrophone);
     document.getElementById('toggle-camera').addEventListener('click', toggleCamera);
     document.getElementById('end-interview').addEventListener('click', finishInterview);
-    
     document.getElementById('clear-voice-answer').addEventListener('click', function() {
-        // Clear the main answer text
         const answerText = document.getElementById('voice-answer-text');
-        if (answerText) {
-            answerText.textContent = '';
-        }
-        
-        // Remove any interim indicator
+        if (answerText) answerText.textContent = '';
         const interimIndicator = document.getElementById('interim-transcript');
-        if (interimIndicator) {
-            interimIndicator.remove();
-        }
+        if (interimIndicator) interimIndicator.remove();
     });
-    
     document.getElementById('next-voice-question').addEventListener('click', submitVoiceAnswer);
-    
-    // Finish interview buttons
     document.getElementById('finish-chat-interview').addEventListener('click', finishInterview);
     document.getElementById('finish-voice-interview').addEventListener('click', finishInterview);
-    
-    // Result screen buttons
     document.getElementById('restart').addEventListener('click', restartInterview);
     document.getElementById('download-result').addEventListener('click', downloadResults);
+
+    // Sự kiện cho nút lặp lại câu hỏi
+    document.getElementById('repeat-question').addEventListener('click', function() {
+        const currentQuestion = document.getElementById('current-voice-question');
+        if (currentQuestion) {
+            speakQuestion(currentQuestion.textContent);
+        }
+    });
 }
 
 // Toggle microphone on/off
@@ -637,41 +623,46 @@ function initializeTextInterview(data) {
 
 // Initialize voice interview
 function initializeVoiceInterview(data) {
-    // Update UI elements
+    // Cập nhật giao diện
     const jobTitle = document.getElementById('voice-job-title');
     const candidateName = document.getElementById('voice-candidate-name');
     const candidateAge = document.getElementById('voice-candidate-age');
     const currentQuestion = document.getElementById('current-voice-question');
-    
+
     if (jobTitle) jobTitle.textContent = userInfo.job;
     if (candidateName) candidateName.textContent = userInfo.name;
     if (candidateAge) candidateAge.textContent = userInfo.age;
     if (currentQuestion) currentQuestion.textContent = data.question;
-    
-    // Clear previous answer
+
+    // Đọc câu hỏi bằng giọng nói
+    if (data.question) {
+        speakQuestion(data.question);
+    }
+
+    // Xóa câu trả lời trước đó
     const answerText = document.getElementById('voice-answer-text');
     if (answerText) answerText.textContent = '';
-    
-    // Remove any interim indicator
+
+    // Xóa bất kỳ chỉ báo tạm thời nào
     const interimIndicator = document.getElementById('interim-transcript');
     if (interimIndicator) {
         interimIndicator.remove();
     }
-    
-    // Reset microphone status indicator
+
+    // Đặt lại chỉ báo trạng thái mic
     const micStatus = document.getElementById('mic-status-indicator');
     if (micStatus) {
         micStatus.textContent = 'Chưa bắt đầu ghi âm';
         micStatus.parentElement.classList.remove('recording');
     }
-    
-    // Update progress indicators
+
+    // Cập nhật chỉ báo tiến độ
     updateProgressIndicators(data, 'voice');
-    
-    // Start interview timer
+
+    // Bắt đầu đồng hồ phỏng vấn
     startInterviewTimer();
-    
-    // Switch to voice interview screen
+
+    // Chuyển sang màn hình phỏng vấn bằng giọng nói
     switchScreen('voice-interview-screen');
 }
 
@@ -759,43 +750,35 @@ async function submitVoiceAnswer() {
         console.error('Answer text element not found');
         return;
     }
-    
+
     const answer = answerText.textContent.trim();
     if (!answer) {
         alert('Vui lòng trả lời câu hỏi trước khi tiếp tục.');
         return;
     }
-    
+
     try {
-        // Stop recording if active
-        if (recognition) {
-            try {
-                if (isRecording) {
-                    isRecording = false;
-                    recognition.stop();
-                    
-                    // Update the mic button
-                    const micButton = document.getElementById('toggle-mic');
-                    if (micButton) {
-                        micButton.classList.remove('pulse-recording');
-                        micButton.querySelector('i').className = 'fas fa-microphone';
-                    }
-                    
-                    // Update the mic status
-                    const micStatus = document.getElementById('mic-status-indicator');
-                    if (micStatus) {
-                        micStatus.textContent = 'Chờ câu hỏi tiếp theo...';
-                        micStatus.parentElement.classList.remove('recording');
-                    }
-                }
-            } catch (e) {
-                console.error('Error stopping recognition during submit:', e);
+        // Dừng ghi âm nếu đang hoạt động
+        if (recognition && isRecording) {
+            isRecording = false;
+            recognition.stop();
+
+            const micButton = document.getElementById('toggle-mic');
+            if (micButton) {
+                micButton.classList.remove('pulse-recording');
+                micButton.querySelector('i').className = 'fas fa-microphone';
+            }
+
+            const micStatus = document.getElementById('mic-status-indicator');
+            if (micStatus) {
+                micStatus.textContent = 'Đang xử lý câu trả lời...';
+                micStatus.parentElement.classList.remove('recording');
             }
         }
-        
-        // Show loading indicator
+
+        // Hiển thị chỉ báo tải
         toggleLoadingIndicator(true, 'Đang đánh giá câu trả lời...');
-        
+
         const response = await fetch(`${API_BASE_URL}/api/submit-answer`, {
             method: 'POST',
             headers: {
@@ -807,48 +790,51 @@ async function submitVoiceAnswer() {
                 mode: 'voice'
             })
         });
-        
+
         if (!response.ok) {
             throw new Error(`Server responded with status ${response.status}`);
         }
-        
+
         const data = await response.json();
-        
-        // Hide loading indicator
+
+        // Ẩn chỉ báo tải
         toggleLoadingIndicator(false);
-        
+
         if (data.error) {
             alert(data.error);
             return;
         }
-        
-        // Check if interview is complete
+
+        // Kiểm tra xem phỏng vấn đã hoàn tất chưa
         if (data.complete) {
             document.getElementById('current-voice-question').textContent = 'Phỏng vấn đã kết thúc! Cảm ơn bạn đã tham gia.';
             setTimeout(() => finishInterview(), 1500);
             return;
         }
-        
-        // Update question
+
+        // Cập nhật câu hỏi
         document.getElementById('current-voice-question').textContent = data.question;
-        
-        // Clear answer
+
+        // Đọc câu hỏi mới bằng giọng nói
+        speakQuestion(data.question);
+
+        // Xóa câu trả lời
         answerText.textContent = '';
-        
-        // Clear any interim transcripts
+
+        // Xóa bất kỳ bản ghi tạm thời nào
         const interimIndicator = document.getElementById('interim-transcript');
         if (interimIndicator) {
             interimIndicator.remove();
         }
-        
-        // Reset the mic status
+
+        // Đặt lại trạng thái mic
         const micStatus = document.getElementById('mic-status-indicator');
         if (micStatus) {
             micStatus.textContent = 'Chưa bắt đầu ghi âm';
             micStatus.parentElement.classList.remove('recording');
         }
-        
-        // Update progress indicators
+
+        // Cập nhật chỉ báo tiến độ
         updateProgressIndicators(data, 'voice');
     } catch (error) {
         toggleLoadingIndicator(false);
@@ -1059,7 +1045,76 @@ function switchScreen(screenId) {
         console.error(`Screen with ID ${screenId} not found`);
     }
 }
+// Hàm đọc câu hỏi bằng giọng nói
+function speakQuestion(text) {
+    if ('speechSynthesis' in window) {
+        // Dừng ghi âm nếu đang hoạt động để tránh ghi âm giọng hệ thống
+        if (recognition && isRecording) {
+            recognition.stop();
+            isRecording = false;
 
+            const mic_performance = document.getElementById('toggle-mic');
+            if (micButton) {
+                micButton.classList.remove('pulse-recording');
+                micButton.querySelector('i').className = 'fas fa-microphone';
+            }
+
+            const micStatus = document.getElementById('mic-status-indicator');
+            if (micStatus) {
+                micStatus.textContent = 'Đang đọc câu hỏi...';
+                micStatus.parentElement.classList.remove('recording');
+            }
+        }
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'vi-VN';
+        utterance.volume = 1.0;
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
+
+        // Chọn giọng tiếng Việt nếu có
+        const voices = window.speechSynthesis.getVoices();
+        const vietnameseVoice = voices.find(voice => voice.lang === 'vi-VN');
+        if (vietnameseVoice) {
+            utterance.voice = vietnameseVoice;
+        }
+
+        // Tự động bắt đầu ghi âm sau khi đọc xong, trừ khi mic bị tắt
+        utterance.onend = function() {
+            if (recognition && !isMicMuted) {
+                try {
+                    recognition.start();
+                    isRecording = true;
+
+                    const micButton = document.getElementById('toggle-mic');
+                    if (micButton) {
+                        micButton.classList.add('pulse-recording');
+                        micButton.querySelector('i').className = 'fas fa-microphone-slash';
+                    }
+
+                    const micStatus = document.getElementById('mic-status-indicator');
+                    if (micStatus) {
+                        micStatus.textContent = 'Đang ghi âm...';
+                        micStatus.parentElement.classList.add('recording');
+                    }
+                } catch (e) {
+                    console.error('Error starting recognition after speaking:', e);
+                    alert('Không thể bắt đầu ghi âm. Vui lòng kiểm tra quyền truy cập microphone.');
+                }
+            }
+        };
+
+        window.speechSynthesis.speak(utterance);
+    } else {
+        console.warn('Trình duyệt không hỗ trợ Text-to-Speech.');
+        alert('Trình duyệt của bạn không hỗ trợ tính năng đọc câu hỏi bằng giọng nói. Vui lòng sử dụng Chrome hoặc Edge.');
+    }
+}
+
+// Đảm bảo danh sách giọng nói được tải
+window.speechSynthesis.onvoiceschanged = function() {
+    // Có thể lưu danh sách giọng nói nếu cần
+};
 // Restart the interview
 function restartInterview() {
     // Reset session
