@@ -1,0 +1,16 @@
+.accordion-header {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.accordion-header:hover {
+    background-color: #e5e7eb;
+}
+.accordion-content {
+    display: none;
+}
+.accordion-content.show {
+    display: block;
+}
+#loading {
+    display: none;
+}

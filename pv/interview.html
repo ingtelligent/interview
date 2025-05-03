@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ thống Phỏng vấn 🚀</title>
+    <link rel="stylesheet" href="interview.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Additional Styles */
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Back Button -->
+      <a href="./homepage/homepage.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>Quay lại</span>
+      </a>
+      <!-- Information Input Screen -->
+      <div id="info-screen" class="screen active">
+        <h1>Hệ thống Phỏng vấn Thông minh 🚀</h1>
+
+        <div class="steps-container">
+          <div class="step active">
+            <div class="step-number">1</div>
+            <div class="step-title">Thông tin</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title">Chọn chế độ</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title">Phỏng vấn</div>
+          </div>
+        </div>
+
+        <p class="subtitle">Nhập thông tin cá nhân để bắt đầu phỏng vấn</p>
+
+        <div class="form-container">
+          <div class="form-group">
+            <label for="name">Họ và tên:</label>
+            <input type="text" id="name" placeholder="Nhập họ và tên của bạn" />
+          </div>
+          <div class="form-group">
+            <label for="age">Tuổi:</label>
+            <input type="number" id="age" placeholder="Nhập tuổi của bạn" />
+          </div>
+          <div class="form-group">
+            <label for="job">Nghề nghiệp ứng tuyển:</label>
+            <select id="job">
+              <option value="">Chọn nghề nghiệp</option>
+              <!-- Job options will be loaded dynamically from JavaScript -->
+            </select>
+          </div>
+          <button id="continue-to-mode" class="btn btn-primary continue-button">
+            Tiếp tục
+          </button>
+        </div>
+      </div>
+
+      <!-- Mode Selection Screen -->
+      <div id="mode-screen" class="screen">
+        <h1>Hệ thống Phỏng vấn Thông minh 🚀</h1>
+
+        <div class="steps-container">
+          <div class="step completed">
+            <div class="step-number">
+              <i class="fas fa-check" style="z-index: 1000"></i>
+            </div>
+            <div class="step-title">Thông tin</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step active">
+            <div class="step-number">2</div>
+            <div class="step-title">Chọn chế độ</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title">Phỏng vấn</div>
+          </div>
+        </div>
+
+        <p class="subtitle">
+          Chào <span id="user-name-display"></span>, vui lòng chọn phương thức
+          phỏng vấn phù hợp
+        </p>
+
+        <div class="mode-selection">
+          <div class="mode-card text-mode" id="select-text-mode">
+            <div class="mode-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="mode-details">
+              <div class="mode-title">Phỏng vấn bằng Chat</div>
+              <div class="mode-description">
+                Trả lời câu hỏi qua trò chuyện văn bản
+              </div>
+            </div>
+          </div>
+
+          <div class="mode-card voice-mode" id="select-voice-mode">
+            <div class="mode-icon">
+              <i class="fas fa-microphone-alt"></i>
+            </div>
+            <div class="mode-details">
+              <div class="mode-title">Phỏng vấn bằng Giọng nói</div>
+              <div class="mode-description">
+                Trả lời câu hỏi trực tiếp qua giọng nói
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mode-card interact-mode"
+            id="select-interact-mode"
+            style="pointer-events: none"
+          >
+            <div class="mode-icon">
+              <i class="fa fa-spinner"></i>
+            </div>
+            <div class="mode-details">
+              <div class="mode-title">Phỏng vấn bằng Tương tác</div>
+              <div class="mode-description">Đang phát triển....</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; margin-bottom: 45px">
+          <button id="start-interview" class="btn btn-primary continue-button">
+            Bắt đầu
+          </button>
+          <button
+            id="back-to-info"
+            class="btn btn-secondary continue-button"
+            style="margin-top: 10px"
+          >
+            Quay lại
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Interview Screen -->
+      <div id="chat-interview-screen" class="screen">
+        <div id="interview-header">
+          <h2>🤖 Phỏng vấn Chat: <span id="chat-job-title"></span></h2>
+          <div id="candidate-info">
+            <p>Ứng viên: <span id="chat-candidate-name"></span></p>
+            <p>Tuổi: <span id="chat-candidate-age"></span></p>
+          </div>
+        </div>
+
+        <div id="chat-interview-content">
+          <div id="progress-bar-container">
+            <div class="progress-text">✅ Tiến độ phỏng vấn:</div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="chat-interview-progress"></div>
+            </div>
+            <div class="progress-stats">
+              <span id="chat-current-criteria-number">1</span>/<span
+                id="chat-total-criteria-number"
+                >10</span
+              >
+              tiêu chí
+            </div>
+          </div>
+
+          <div class="chat-container" id="chat-messages">
+            <!-- Messages will be added dynamically -->
+          </div>
+
+          <div class="chat-input-container">
+            <input
+              type="text"
+              class="chat-input"
+              id="chat-input"
+              placeholder="Nhập câu trả lời của bạn..."
+            />
+            <button class="send-button" id="send-message">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+
+          <div id="chat-interview-controls">
+            <button id="finish-chat-interview" class="btn btn-secondary">
+              Kết thúc phỏng vấn
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voice Interview Screen -->
+      <div id="voice-interview-screen" class="screen">
+        <div id="interview-header">
+          <h2>🎤 Phỏng vấn Giọng nói: <span id="voice-job-title"></span></h2>
+          <div id="candidate-info">
+            <p>Ứng viên: <span id="voice-candidate-name"></span></p>
+            <p>Tuổi: <span id="voice-candidate-age"></span></p>
+          </div>
+        </div>
+
+        <div id="voice-interview-content" class="modernized-voice-content">
+          <div class="voice-interview-layout">
+            <div class="voice-main-container">
+              <div id="progress-bar-container">
+                <div class="progress-text">✅ Tiến độ phỏng vấn:</div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    id="voice-interview-progress"
+                  ></div>
+                </div>
+                <div class="progress-stats">
+                  <span id="voice-current-criteria-number">1</span>/<span
+                    id="voice-total-criteria-number"
+                    >10</span
+                  >
+                  tiêu chí
+                </div>
+              </div>
+
+              <div class="interview-time">
+                <i class="fas fa-clock"></i> Thời gian:
+                <span id="interview-timer">00:00</span>
+              </div>
+
+              <div class="current-question-display">
+                <div class="question-label">Câu hỏi hiện tại:</div>
+                <div class="question-text" id="current-voice-question">
+                  Đang tải câu hỏi...
+                </div>
+              </div>
+
+              <div id="voice-answer-section">
+                <div class="voice-answer-header">
+                    <h3>Câu trả lời của bạn:</h3>
+                    <div class="mic-status">
+                        <span id="mic-status-indicator">Chưa bắt đầu ghi âm</span>
+                    </div>
+                </div>
+                <div class="voice-answer-container">
+                    <div id="voice-answer-text" contenteditable="true"></div>
+                </div>
+                <div class="input-actions">
+                    <button id="repeat-question" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-redo"></i> Lặp lại câu hỏi
+                    </button>
+                    <button id="clear-voice-answer" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-eraser"></i> Xóa câu trả lời
+                    </button>
+                </div>
+            </div>
+            </div>
+
+            <div class="voice-sidebar-container">
+              <div class="interviewer-avatar-container">
+                <div class="virtual-interviewer">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="interviewer-label">Người phỏng vấn ảo</div>
+              </div>
+
+              <div class="voice-controls-container">
+                <div class="video-controls">
+                  <div class="voice-control-group">
+                    <div
+                      class="video-control-button mic-button"
+                      id="toggle-mic"
+                    >
+                      <i class="fas fa-microphone"></i>
+                    </div>
+                    <span class="control-label">Mic</span>
+                  </div>
+                  <div class="voice-control-group">
+                    <div
+                      class="video-control-button camera-button"
+                      id="toggle-camera"
+                    >
+                      <i class="fas fa-video"></i>
+                    </div>
+                    <span class="control-label">Camera</span>
+                  </div>
+                  <div class="voice-control-group">
+                    <div
+                      class="video-control-button end-button"
+                      id="end-interview"
+                    >
+                      <i class="fas fa-phone-slash"></i>
+                    </div>
+                    <span class="control-label">Kết thúc</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="voice-interview-tips">
+                <h4>Mẹo phỏng vấn:</h4>
+                <ul>
+                  <li>
+                    Nhấn vào nút <i class="fas fa-microphone"></i> để bắt đầu
+                    ghi âm
+                  </li>
+                  <li>Nói rõ ràng và tự nhiên</li>
+                  <li>Kiểm tra câu trả lời trước khi gửi</li>
+                  <li>
+                    Bạn có thể chỉnh sửa câu trả lời bằng cách gõ trực tiếp
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="voice-interview-controls" class="voice-navigation-buttons">
+            <button id="next-voice-question" class="btn btn-primary">
+              <i class="fas fa-check-circle"></i> Gửi câu trả lời
+            </button>
+            <button id="finish-voice-interview" class="btn btn-secondary">
+              <i class="fas fa-flag-checkered"></i> Kết thúc phỏng vấn
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Screen -->
+      <div id="result-screen" class="screen">
+        <h2>🌟 Kết quả phỏng vấn</h2>
+        <div id="candidate-result-info">
+          <p>Ứng viên: <span id="result-name"></span></p>
+          <p>Tuổi: <span id="result-age"></span></p>
+          <p>Vị trí ứng tuyển: <span id="result-job"></span></p>
+          <p>Phương thức phỏng vấn: <span id="result-mode"></span></p>
+        </div>
+
+        <div id="score-overview">
+          <h3>✅ Điểm tổng quan:</h3>
+          <div class="score-chart">
+            <div class="score-bar">
+              <div class="score-fill" id="total-score-fill"></div>
+            </div>
+            <p>
+              Tổng điểm: <span id="total-score">0</span>/<span id="max-score"
+                >40</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <div id="detailed-scores">
+          <h3>😍 Điểm chi tiết theo tiêu chí:</h3>
+          <div id="criteria-scores">
+            <!-- Will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <div id="evaluation">
+          <h3>🥳 Đánh giá chung:</h3>
+          <p id="evaluation-text"></p>
+        </div>
+
+        <div id="result-controls">
+          <button id="restart" class="btn btn-primary">
+            Quay lại trang chủ
+          </button>
+          <button id="download-result" class="btn btn-secondary">
+            Tải xuống kết quả
+          </button>
+        </div>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div id="loading-indicator" class="loading" style="display: none">
+        <div class="loading-spinner"></div>
+        <p id="loading-message">Đang xử lý...</p>
+      </div>
+    </div>
+
+    <script src="interview.js"></script>
+  </body>
+</html>

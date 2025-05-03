@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: Utils-Config
+Version: 1.0.0
+Summary: Library to use .json files as configuration objects using namedtuple.
+Home-page: https://github.com/yeyeto2788/Utils-Config
+Author: Juan Biondi
+Author-email: juanernestobiondi@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Requires-Python: >=3.5.0
+Description-Content-Type: text/x-rst
+
+
+Utils-Config
+============
+
+Library to use .json files as configuration objects using namedtuple.
+
+This library let’s you use ``.json`` files as “objects” within your
+code.
+
+Installation
+------------
+
+.. code-block:: console
+
+   pip install git+https://github.com/yeyeto2788/Utils-Config
+
+
+Usage
+-----
+
+Create a file called `config.json` (you can change the name to
+something you like) and add some content to it.
+
+In this demo we add the following data.
+
+.. code-block:: json
+
+   {
+     "temperature": 30,
+     "screen": {
+       "width": 640,
+       "height": 480
+     },
+     "name": null,
+     "id": "4V3RYCR4ZY1D"
+   }
+
+
+Now let’s head over Python and test the module and its functions.
+
+Importing the module and loading our `.json` file.
+
+.. code-block:: python
+
+   import utils_config
+   config_file="./config.json"
+   config = utils_config.load_config(config_file)
+
+
+Now let’s see what we’ve got in the `config` variable, serializing it
+into a dictionary.
+
+.. code-block:: python
+
+   utils_config.serialize_config(config)
+
+Let’s access to its keys/attributes.
+
+.. code-block:: python
+
+   config.temperature
+   config.screen.width
+   config.name
+   config.id
+
+Edit the current configuration (Take into account that this function
+will return a new `configuration` namedtuple)
+
+.. code-block:: python
+
+   config = utils_config.edit_config(config, {"id": "another_id"})
+   config.id
+
+Save the configuration to a file.
+
+.. code-block:: python
+
+   utils_config.save_config(config_file, config)
+
+Contributing
+------------
+
+**All contributions, pull requests and comments are welcome!**
+
+When contributing it is important to test the module in order to make sure everything is working as expected. For that install dependencies to run the tests.
+
+.. code-block:: console
+
+   pip install pytest pytest-cov mock pylint
+
+Running tests and see coverage.
+
+.. code-block:: console
+
+   py.test --cov -v --cov-config=.coveragerc --cov-report=html
+
+This will generate a report with the coverage which is at **100%** now,
+let’s try to keep it at the same percentage.
+
