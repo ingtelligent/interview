@@ -175,3 +175,556 @@ Level: In...
 2025-05-03 22:37:18,026 - INFO - 127.0.0.1 - - [03/May/2025 22:37:18] "POST /upload HTTP/1.1" 200 -
 2025-05-03 22:37:18,035 - INFO - Returning results for ID: 8680ca5c-9bd4-4c96-91bb-c70be5d39edd
 2025-05-03 22:37:18,036 - INFO - 127.0.0.1 - - [03/May/2025 22:37:18] "GET /results/8680ca5c-9bd4-4c96-91bb-c70be5d39edd HTTP/1.1" 200 -
+2025-05-17 00:30:52,393 - INFO - Starting Flask server on http://localhost:5000
+2025-05-17 00:30:52,405 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.2.27:5000
+2025-05-17 00:30:52,405 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 00:32:13,405 - INFO - Processing uploaded file: Le Loc Quoc Thinh embedded CV.pdf
+2025-05-17 00:32:13,405 - INFO - Extracting text from uploaded PDF
+2025-05-17 00:32:13,415 - DEBUG - Extracted PDF text: ADDITIONAL INFORMATION
+EDUCATION & CERTIFICATES (*)
+PROJECTS (*)
+SUMMARY
+Technical Skills: Vivado - Xilinx, Scilab, Altium, Pspice, STM32CubeIDE, Proteus, Arduino IDE, VScode etc.
+Soft Skills: Teamwor...
+2025-05-17 00:32:13,415 - INFO - Initializing Gemini API
+2025-05-17 00:32:13,416 - INFO - Sending CV analysis request to Gemini API
+2025-05-17 00:32:14,218 - ERROR - Error using Gemini API: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 47
+}
+]
+2025-05-17 00:32:14,221 - INFO - Analysis completed, result URL: http://localhost:5000/results/3944be91-004f-4f9e-b782-483ad0ee6ab4
+2025-05-17 00:32:14,222 - INFO - 127.0.0.1 - - [17/May/2025 00:32:14] "POST /upload HTTP/1.1" 200 -
+2025-05-17 00:32:14,228 - INFO - Returning results for ID: 3944be91-004f-4f9e-b782-483ad0ee6ab4
+2025-05-17 00:32:14,229 - INFO - 127.0.0.1 - - [17/May/2025 00:32:14] "GET /results/3944be91-004f-4f9e-b782-483ad0ee6ab4 HTTP/1.1" 200 -
+2025-05-17 00:47:53,413 - INFO - Processing uploaded file: CV Le Minh Kha - BUSINESS ANALYST (1).pdf
+2025-05-17 00:47:53,413 - INFO - Extracting text from uploaded PDF
+2025-05-17 00:47:53,431 - DEBUG - Extracted PDF text: Le Minh Kha
+IT BUSINESS ANALYST
+PROFILE
+
+21/08/2004
+
+0797786506
+
+www.linkedin.com/in/lmikha 
+✉
+khale7695@gmail.com
+
+Thu Duc District, Ho Chi Minh 
+City
+SKILLS
+BUSINESS & PROCESS ANALYSIS
+Level: In...
+2025-05-17 00:47:53,434 - INFO - Initializing Gemini API
+2025-05-17 00:47:53,435 - INFO - Sending CV analysis request to Gemini API
+2025-05-17 00:47:54,994 - ERROR - Error using Gemini API: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 7
+}
+]
+2025-05-17 00:47:54,999 - INFO - Analysis completed, result URL: http://localhost:5000/results/b6a215fa-42f9-4137-b05b-f4c337ad01c0
+2025-05-17 00:47:55,000 - INFO - 127.0.0.1 - - [17/May/2025 00:47:55] "POST /upload HTTP/1.1" 200 -
+2025-05-17 00:47:55,008 - INFO - Returning results for ID: b6a215fa-42f9-4137-b05b-f4c337ad01c0
+2025-05-17 00:47:55,008 - INFO - 127.0.0.1 - - [17/May/2025 00:47:55] "GET /results/b6a215fa-42f9-4137-b05b-f4c337ad01c0 HTTP/1.1" 200 -
+2025-05-17 00:48:49,721 - INFO - Starting Flask server on http://localhost:5000
+2025-05-17 00:48:49,734 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.2.27:5000
+2025-05-17 00:48:49,735 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 00:49:02,595 - INFO - Processing uploaded file: CV Le Minh Kha - BUSINESS ANALYST (1).pdf
+2025-05-17 00:49:02,596 - INFO - Extracting text from uploaded PDF
+2025-05-17 00:49:02,609 - DEBUG - Extracted PDF text: Le Minh Kha
+IT BUSINESS ANALYST
+PROFILE
+
+21/08/2004
+
+0797786506
+
+www.linkedin.com/in/lmikha 
+✉
+khale7695@gmail.com
+
+Thu Duc District, Ho Chi Minh 
+City
+SKILLS
+BUSINESS & PROCESS ANALYSIS
+Level: In...
+2025-05-17 00:49:02,610 - INFO - Initializing Gemini 1.5 Flash API
+2025-05-17 00:49:02,612 - INFO - Sending CV analysis request to Gemini 1.5 Flash API
+2025-05-17 00:49:23,506 - DEBUG - API response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 6,
+    "nhan_xet": "Thông tin cá nhân khá đầy đủ với tên, số điện thoại, email, và LinkedIn.  Tuy nhiên, email chưa chuyên nghiệp (khale7695@gmail.com thay vì tên. họ@gmail.com), thiếu GitHub và portfolio cá nhân.  Summary statement khá chung chung, chưa đủ sức hấp dẫn và chưa nhấn mạnh được điểm mạnh nổi bật của ứng viên.  Đối với ngành IT, việc thiếu GitHub là một thiếu sót lớn, vì nó là nơi để thể hiện các dự án cá nhân và kỹ năng lập trình. Ngàn...
+2025-05-17 00:49:23,508 - WARNING - API returned text instead of JSON, attempting to parse
+2025-05-17 00:49:23,509 - INFO - Parsing text response into JSON
+2025-05-17 00:49:23,509 - DEBUG - Raw response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 6,
+    "nhan_xet": "Thông tin cá nhân khá đầy đủ với tên, số điện thoại, email, và LinkedIn.  Tuy nhiên, email chưa chuyên nghiệp (khale7695@gmail.com thay vì tên. họ@gmail.com), thiếu GitHub và portfolio cá nhân.  Summary statement khá chung chung, chưa đủ sức hấp dẫn và chưa nhấn mạnh được điểm mạnh nổi bật của ứng viên.  Đối với ngành IT, việc thiếu GitHub là một thiếu sót lớn, vì nó là nơi để thể hiện các dự án cá nhân và kỹ năng lập trình. Ngàn...
+2025-05-17 00:49:23,512 - DEBUG - Extracted skills: ['trello', 'figma', 'draw.io', 'trello', 'sql', 'excel', 'sql', 'sql'], projects: ['• project', 'jewelry store management system', 'jewelry store management system'], certifications: ['google ai essentials']
+2025-05-17 00:49:23,520 - DEBUG - Extracted section 'thong_tin_ca_nhan': ...
+2025-05-17 00:49:23,522 - WARNING - No content extracted for section 'thong_tin_ca_nhan', using default
+2025-05-17 00:49:23,523 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 00:49:23,523 - DEBUG - Positive keyword 'linkedin' found, score +1
+2025-05-17 00:49:23,524 - DEBUG - Text length < 100, score -1
+2025-05-17 00:49:23,524 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:49:23,525 - DEBUG - Extracted section 'muc_tieu_nghe_nghiep': ...
+2025-05-17 00:49:23,527 - WARNING - No content extracted for section 'muc_tieu_nghe_nghiep', using default
+2025-05-17 00:49:23,527 - DEBUG - Extracted section 'trinh_do_hoc_van': ...
+2025-05-17 00:49:23,527 - WARNING - No content extracted for section 'trinh_do_hoc_van', using default
+2025-05-17 00:49:23,528 - DEBUG - Positive keyword 'gpa' found, score +1
+2025-05-17 00:49:23,528 - DEBUG - Positive keyword 'thành tích' found, score +1
+2025-05-17 00:49:23,528 - DEBUG - Negative keyword 'thiếu' found, score -1
+2025-05-17 00:49:23,528 - DEBUG - Text length < 100, score -1
+2025-05-17 00:49:23,528 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:49:23,528 - DEBUG - Extracted section 'ky_nang': ...
+2025-05-17 00:49:23,529 - WARNING - No content extracted for section 'ky_nang', using default
+2025-05-17 00:49:23,529 - DEBUG - Positive keyword 'cụ thể' found, score +1
+2025-05-17 00:49:23,529 - DEBUG - Positive keyword 'trello' found, score +1
+2025-05-17 00:49:23,529 - DEBUG - Positive keyword 'figma' found, score +1
+2025-05-17 00:49:23,530 - DEBUG - Positive keyword 'sql' found, score +1
+2025-05-17 00:49:23,530 - DEBUG - Positive keyword 'excel' found, score +1
+2025-05-17 00:49:23,530 - DEBUG - Text length < 100, score -1
+2025-05-17 00:49:23,530 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:49:23,531 - DEBUG - Extracted section 'kinh_nghiem_lam_viec': ...
+2025-05-17 00:49:23,531 - WARNING - No content extracted for section 'kinh_nghiem_lam_viec', using default
+2025-05-17 00:49:23,531 - DEBUG - Positive keyword 'github' found, score +1
+2025-05-17 00:49:23,531 - DEBUG - Negative keyword 'sơ sài' found, score -1
+2025-05-17 00:49:23,532 - DEBUG - Text length < 100, score -1
+2025-05-17 00:49:23,532 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:49:23,532 - DEBUG - Extracted section 'kien_thuc_diem_manh': ...
+2025-05-17 00:49:23,532 - WARNING - No content extracted for section 'kien_thuc_diem_manh', using default
+2025-05-17 00:49:23,532 - DEBUG - Extracted section 'ngon_ngu_va_cach_dien_dat': ...
+2025-05-17 00:49:23,533 - WARNING - No content extracted for section 'ngon_ngu_va_cach_dien_dat', using default
+2025-05-17 00:49:23,533 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 00:49:23,533 - DEBUG - Positive keyword 'chính xác' found, score +1
+2025-05-17 00:49:23,533 - DEBUG - Text length < 100, score -1
+2025-05-17 00:49:23,534 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:49:23,534 - DEBUG - Extracted section 'so_thich': ...
+2025-05-17 00:49:23,535 - WARNING - No content extracted for section 'so_thich', using default
+2025-05-17 00:49:23,535 - DEBUG - Extracted section 'danh_gia_tong_the': ...
+2025-05-17 00:49:23,535 - WARNING - No content extracted for section 'danh_gia_tong_the', using default
+2025-05-17 00:49:23,536 - DEBUG - Job roles: ['Phát triển phần mềm - Kinh nghiệm với • project, jewelry store management system, jewelry store management system.', 'Quản lý dự án - Kỹ năng tổ chức và sử dụng công cụ như Trello.', 'Phân tích dữ liệu - Có kinh nghiệm với các công cụ phân tích dữ liệu.', 'Thiết kế quy trình - Sử dụng thành thạo các công cụ thiết kế như Figma.']
+2025-05-17 00:49:23,537 - DEBUG - Average score: 7.0
+2025-05-17 00:49:23,538 - INFO - Parsing completed successfully
+2025-05-17 00:49:23,539 - INFO - Analysis completed, result URL: http://localhost:5000/results/dda04da3-ff65-4e66-b1a8-b10f0b1f7970
+2025-05-17 00:49:23,539 - INFO - 127.0.0.1 - - [17/May/2025 00:49:23] "POST /upload HTTP/1.1" 200 -
+2025-05-17 00:49:23,857 - INFO - Returning results for ID: dda04da3-ff65-4e66-b1a8-b10f0b1f7970
+2025-05-17 00:49:23,858 - INFO - 127.0.0.1 - - [17/May/2025 00:49:23] "GET /results/dda04da3-ff65-4e66-b1a8-b10f0b1f7970 HTTP/1.1" 200 -
+2025-05-17 00:54:23,817 - INFO - Processing uploaded file: CV Le Minh Kha - BUSINESS ANALYST (1).pdf
+2025-05-17 00:54:23,817 - INFO - Extracting text from uploaded PDF
+2025-05-17 00:54:23,829 - DEBUG - Extracted PDF text: Le Minh Kha
+IT BUSINESS ANALYST
+PROFILE
+
+21/08/2004
+
+0797786506
+
+www.linkedin.com/in/lmikha 
+✉
+khale7695@gmail.com
+
+Thu Duc District, Ho Chi Minh 
+City
+SKILLS
+BUSINESS & PROCESS ANALYSIS
+Level: In...
+2025-05-17 00:54:23,831 - INFO - Initializing Gemini 1.5 Flash API
+2025-05-17 00:54:23,831 - INFO - Sending CV analysis request to Gemini 1.5 Flash API
+2025-05-17 00:54:46,472 - DEBUG - API response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 6,
+    "nhan_xet": "Thông tin cá nhân khá đầy đủ với tên, số điện thoại, email, LinkedIn. Tuy nhiên, email chưa chuyên nghiệp (khale7695@gmail.com nên thay bằng le.minh.kha@gmail.com hoặc tương tự). Thiếu GitHub và portfolio cá nhân, đây là điểm trừ lớn, đặc biệt đối với ngành IT.  Summary statement khá chung chung, chưa đủ sức thu hút và chưa nhấn mạnh được điểm mạnh của bản thân.  Đối với ngành IT, GitHub là bắt buộc, ngành Marketing cần portfolio...
+2025-05-17 00:54:46,474 - WARNING - API returned text instead of JSON, attempting to parse
+2025-05-17 00:54:46,474 - INFO - Parsing text response into JSON
+2025-05-17 00:54:46,474 - DEBUG - Raw response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 6,
+    "nhan_xet": "Thông tin cá nhân khá đầy đủ với tên, số điện thoại, email, LinkedIn. Tuy nhiên, email chưa chuyên nghiệp (khale7695@gmail.com nên thay bằng le.minh.kha@gmail.com hoặc tương tự). Thiếu GitHub và portfolio cá nhân, đây là điểm trừ lớn, đặc biệt đối với ngành IT.  Summary statement khá chung chung, chưa đủ sức thu hút và chưa nhấn mạnh được điểm mạnh của bản thân.  Đối với ngành IT, GitHub là bắt buộc, ngành Marketing cần portfolio...
+2025-05-17 00:54:46,476 - DEBUG - Extracted skills: ['trello', 'figma', 'draw.io', 'trello', 'sql', 'excel', 'sql', 'sql'], projects: ['• project', 'jewelry store management system', 'jewelry store management system'], certifications: ['google ai essentials']
+2025-05-17 00:54:46,476 - DEBUG - Extracted section 'thong_tin_ca_nhan': ...
+2025-05-17 00:54:46,477 - WARNING - No content extracted for section 'thong_tin_ca_nhan', using default
+2025-05-17 00:54:46,477 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 00:54:46,477 - DEBUG - Positive keyword 'linkedin' found, score +1
+2025-05-17 00:54:46,479 - DEBUG - Text length < 100, score -1
+2025-05-17 00:54:46,479 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:54:46,479 - DEBUG - Extracted section 'muc_tieu_nghe_nghiep': ...
+2025-05-17 00:54:46,480 - WARNING - No content extracted for section 'muc_tieu_nghe_nghiep', using default
+2025-05-17 00:54:46,480 - DEBUG - Extracted section 'trinh_do_hoc_van': ...
+2025-05-17 00:54:46,480 - WARNING - No content extracted for section 'trinh_do_hoc_van', using default
+2025-05-17 00:54:46,480 - DEBUG - Positive keyword 'gpa' found, score +1
+2025-05-17 00:54:46,480 - DEBUG - Positive keyword 'thành tích' found, score +1
+2025-05-17 00:54:46,481 - DEBUG - Negative keyword 'thiếu' found, score -1
+2025-05-17 00:54:46,481 - DEBUG - Text length < 100, score -1
+2025-05-17 00:54:46,481 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:54:46,481 - DEBUG - Extracted section 'ky_nang': ...
+2025-05-17 00:54:46,481 - WARNING - No content extracted for section 'ky_nang', using default
+2025-05-17 00:54:46,481 - DEBUG - Positive keyword 'cụ thể' found, score +1
+2025-05-17 00:54:46,482 - DEBUG - Positive keyword 'trello' found, score +1
+2025-05-17 00:54:46,482 - DEBUG - Positive keyword 'figma' found, score +1
+2025-05-17 00:54:46,482 - DEBUG - Positive keyword 'sql' found, score +1
+2025-05-17 00:54:46,482 - DEBUG - Positive keyword 'excel' found, score +1
+2025-05-17 00:54:46,482 - DEBUG - Text length < 100, score -1
+2025-05-17 00:54:46,482 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:54:46,483 - DEBUG - Extracted section 'kinh_nghiem_lam_viec': ...
+2025-05-17 00:54:46,483 - WARNING - No content extracted for section 'kinh_nghiem_lam_viec', using default
+2025-05-17 00:54:46,483 - DEBUG - Positive keyword 'github' found, score +1
+2025-05-17 00:54:46,483 - DEBUG - Negative keyword 'sơ sài' found, score -1
+2025-05-17 00:54:46,483 - DEBUG - Text length < 100, score -1
+2025-05-17 00:54:46,483 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:54:46,483 - DEBUG - Extracted section 'kien_thuc_diem_manh': ...
+2025-05-17 00:54:46,483 - WARNING - No content extracted for section 'kien_thuc_diem_manh', using default
+2025-05-17 00:54:46,484 - DEBUG - Extracted section 'ngon_ngu_va_cach_dien_dat': ...
+2025-05-17 00:54:46,484 - WARNING - No content extracted for section 'ngon_ngu_va_cach_dien_dat', using default
+2025-05-17 00:54:46,484 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 00:54:46,484 - DEBUG - Positive keyword 'chính xác' found, score +1
+2025-05-17 00:54:46,484 - DEBUG - Text length < 100, score -1
+2025-05-17 00:54:46,484 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:54:46,484 - DEBUG - Extracted section 'so_thich': ...
+2025-05-17 00:54:46,484 - WARNING - No content extracted for section 'so_thich', using default
+2025-05-17 00:54:46,485 - DEBUG - Extracted section 'danh_gia_tong_the': ...
+2025-05-17 00:54:46,485 - WARNING - No content extracted for section 'danh_gia_tong_the', using default
+2025-05-17 00:54:46,485 - DEBUG - Job roles: ['Phát triển phần mềm - Kinh nghiệm với • project, jewelry store management system, jewelry store management system.', 'Quản lý dự án - Kỹ năng tổ chức và sử dụng công cụ như Trello.', 'Phân tích dữ liệu - Có kinh nghiệm với các công cụ phân tích dữ liệu.', 'Thiết kế quy trình - Sử dụng thành thạo các công cụ thiết kế như Figma.']
+2025-05-17 00:54:46,485 - DEBUG - Average score: 7.0
+2025-05-17 00:54:46,486 - INFO - Parsing completed successfully
+2025-05-17 00:54:46,486 - INFO - Analysis completed, result URL: http://localhost:5000/results/b3545af9-8af1-41de-b887-6c5fcdc1084c
+2025-05-17 00:54:46,487 - INFO - 127.0.0.1 - - [17/May/2025 00:54:46] "POST /upload HTTP/1.1" 200 -
+2025-05-17 00:54:46,496 - INFO - Returning results for ID: b3545af9-8af1-41de-b887-6c5fcdc1084c
+2025-05-17 00:54:46,497 - INFO - 127.0.0.1 - - [17/May/2025 00:54:46] "GET /results/b3545af9-8af1-41de-b887-6c5fcdc1084c HTTP/1.1" 200 -
+2025-05-17 00:55:32,628 - INFO - Processing uploaded file: CV Le Minh Kha - BUSINESS ANALYST (1).pdf
+2025-05-17 00:55:32,629 - INFO - Extracting text from uploaded PDF
+2025-05-17 00:55:32,640 - DEBUG - Extracted PDF text: Le Minh Kha
+IT BUSINESS ANALYST
+PROFILE
+
+21/08/2004
+
+0797786506
+
+www.linkedin.com/in/lmikha 
+✉
+khale7695@gmail.com
+
+Thu Duc District, Ho Chi Minh 
+City
+SKILLS
+BUSINESS & PROCESS ANALYSIS
+Level: In...
+2025-05-17 00:55:32,641 - INFO - Initializing Gemini 1.5 Flash API
+2025-05-17 00:55:32,641 - INFO - Sending CV analysis request to Gemini 1.5 Flash API
+2025-05-17 00:55:55,258 - DEBUG - API response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 6,
+    "nhan_xet": "Thông tin cá nhân trình bày khá đầy đủ, bao gồm tên, số điện thoại, email, LinkedIn và GitHub. Tuy nhiên, email cá nhân (khale7695@gmail.com) không chuyên nghiệp, thiếu tính trang trọng cần thiết cho một CV xin việc. Địa chỉ cư trú được cung cấp nhưng thiếu độ chính xác.  Thiếu website cá nhân và portfolio trực quan.  Summary statement (Objective) khá chung chung, chưa đủ sức thuyết phục và nổi bật.  Mục tiêu nghề nghiệp được đề ...
+2025-05-17 00:55:55,260 - WARNING - API returned text instead of JSON, attempting to parse
+2025-05-17 00:55:55,261 - INFO - Parsing text response into JSON
+2025-05-17 00:55:55,261 - DEBUG - Raw response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 6,
+    "nhan_xet": "Thông tin cá nhân trình bày khá đầy đủ, bao gồm tên, số điện thoại, email, LinkedIn và GitHub. Tuy nhiên, email cá nhân (khale7695@gmail.com) không chuyên nghiệp, thiếu tính trang trọng cần thiết cho một CV xin việc. Địa chỉ cư trú được cung cấp nhưng thiếu độ chính xác.  Thiếu website cá nhân và portfolio trực quan.  Summary statement (Objective) khá chung chung, chưa đủ sức thuyết phục và nổi bật.  Mục tiêu nghề nghiệp được đề ...
+2025-05-17 00:55:55,262 - DEBUG - Extracted skills: ['trello', 'figma', 'draw.io', 'trello', 'sql', 'excel', 'sql', 'sql'], projects: ['• project', 'jewelry store management system', 'jewelry store management system'], certifications: ['google ai essentials']
+2025-05-17 00:55:55,263 - DEBUG - Extracted section 'thong_tin_ca_nhan': ...
+2025-05-17 00:55:55,263 - WARNING - No content extracted for section 'thong_tin_ca_nhan', using default
+2025-05-17 00:55:55,263 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 00:55:55,263 - DEBUG - Positive keyword 'linkedin' found, score +1
+2025-05-17 00:55:55,264 - DEBUG - Text length < 100, score -1
+2025-05-17 00:55:55,264 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:55:55,264 - DEBUG - Extracted section 'muc_tieu_nghe_nghiep': ...
+2025-05-17 00:55:55,264 - WARNING - No content extracted for section 'muc_tieu_nghe_nghiep', using default
+2025-05-17 00:55:55,264 - DEBUG - Extracted section 'trinh_do_hoc_van': ...
+2025-05-17 00:55:55,264 - WARNING - No content extracted for section 'trinh_do_hoc_van', using default
+2025-05-17 00:55:55,264 - DEBUG - Positive keyword 'gpa' found, score +1
+2025-05-17 00:55:55,265 - DEBUG - Positive keyword 'thành tích' found, score +1
+2025-05-17 00:55:55,265 - DEBUG - Negative keyword 'thiếu' found, score -1
+2025-05-17 00:55:55,265 - DEBUG - Text length < 100, score -1
+2025-05-17 00:55:55,265 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:55:55,265 - DEBUG - Extracted section 'ky_nang': ...
+2025-05-17 00:55:55,265 - WARNING - No content extracted for section 'ky_nang', using default
+2025-05-17 00:55:55,266 - DEBUG - Positive keyword 'cụ thể' found, score +1
+2025-05-17 00:55:55,266 - DEBUG - Positive keyword 'trello' found, score +1
+2025-05-17 00:55:55,266 - DEBUG - Positive keyword 'figma' found, score +1
+2025-05-17 00:55:55,266 - DEBUG - Positive keyword 'sql' found, score +1
+2025-05-17 00:55:55,266 - DEBUG - Positive keyword 'excel' found, score +1
+2025-05-17 00:55:55,267 - DEBUG - Text length < 100, score -1
+2025-05-17 00:55:55,267 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:55:55,267 - DEBUG - Extracted section 'kinh_nghiem_lam_viec': ...
+2025-05-17 00:55:55,267 - WARNING - No content extracted for section 'kinh_nghiem_lam_viec', using default
+2025-05-17 00:55:55,268 - DEBUG - Positive keyword 'github' found, score +1
+2025-05-17 00:55:55,268 - DEBUG - Negative keyword 'sơ sài' found, score -1
+2025-05-17 00:55:55,268 - DEBUG - Text length < 100, score -1
+2025-05-17 00:55:55,268 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:55:55,268 - DEBUG - Extracted section 'kien_thuc_diem_manh': ...
+2025-05-17 00:55:55,268 - WARNING - No content extracted for section 'kien_thuc_diem_manh', using default
+2025-05-17 00:55:55,268 - DEBUG - Extracted section 'ngon_ngu_va_cach_dien_dat': ...
+2025-05-17 00:55:55,269 - WARNING - No content extracted for section 'ngon_ngu_va_cach_dien_dat', using default
+2025-05-17 00:55:55,269 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 00:55:55,269 - DEBUG - Positive keyword 'chính xác' found, score +1
+2025-05-17 00:55:55,269 - DEBUG - Text length < 100, score -1
+2025-05-17 00:55:55,269 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:55:55,269 - DEBUG - Extracted section 'so_thich': ...
+2025-05-17 00:55:55,269 - WARNING - No content extracted for section 'so_thich', using default
+2025-05-17 00:55:55,269 - DEBUG - Extracted section 'danh_gia_tong_the': ...
+2025-05-17 00:55:55,270 - WARNING - No content extracted for section 'danh_gia_tong_the', using default
+2025-05-17 00:55:55,270 - DEBUG - Job roles: ['Phát triển phần mềm - Kinh nghiệm với • project, jewelry store management system, jewelry store management system.', 'Quản lý dự án - Kỹ năng tổ chức và sử dụng công cụ như Trello.', 'Phân tích dữ liệu - Có kinh nghiệm với các công cụ phân tích dữ liệu.', 'Thiết kế quy trình - Sử dụng thành thạo các công cụ thiết kế như Figma.']
+2025-05-17 00:55:55,270 - DEBUG - Average score: 7.0
+2025-05-17 00:55:55,271 - INFO - Parsing completed successfully
+2025-05-17 00:55:55,271 - INFO - Analysis completed, result URL: http://localhost:5000/results/a3a28d42-24d9-4c5d-aceb-e655dc96b61a
+2025-05-17 00:55:55,271 - INFO - 127.0.0.1 - - [17/May/2025 00:55:55] "POST /upload HTTP/1.1" 200 -
+2025-05-17 00:55:55,277 - INFO - Returning results for ID: a3a28d42-24d9-4c5d-aceb-e655dc96b61a
+2025-05-17 00:55:55,279 - INFO - 127.0.0.1 - - [17/May/2025 00:55:55] "GET /results/a3a28d42-24d9-4c5d-aceb-e655dc96b61a HTTP/1.1" 200 -
+2025-05-17 00:56:32,171 - INFO - Processing uploaded file: Le Loc Quoc Thinh embedded CV.pdf
+2025-05-17 00:56:32,172 - INFO - Extracting text from uploaded PDF
+2025-05-17 00:56:32,180 - DEBUG - Extracted PDF text: ADDITIONAL INFORMATION
+EDUCATION & CERTIFICATES (*)
+PROJECTS (*)
+SUMMARY
+Technical Skills: Vivado - Xilinx, Scilab, Altium, Pspice, STM32CubeIDE, Proteus, Arduino IDE, VScode etc.
+Soft Skills: Teamwor...
+2025-05-17 00:56:32,180 - INFO - Initializing Gemini 1.5 Flash API
+2025-05-17 00:56:32,181 - INFO - Sending CV analysis request to Gemini 1.5 Flash API
+2025-05-17 00:56:52,511 - DEBUG - API response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 7,
+    "nhan_xet": "Thông tin cá nhân khá đầy đủ, bao gồm tên, số điện thoại, email, GitHub và LinkedIn. Email sử dụng định dạng của trường đại học, điều này khá chuyên nghiệp trong bối cảnh ứng viên là sinh viên. Tuy nhiên, nên thay thế bằng email cá nhân chuẩn hơn như ten.ho@gmail.com để tạo ấn tượng chuyên nghiệp hơn trong các ứng tuyển công việc.  Thiếu địa chỉ đầy đủ, điều này có thể gây khó khăn cho nhà tuyển dụng nếu muốn liên hệ trực tiếp.  ...
+2025-05-17 00:56:52,512 - WARNING - API returned text instead of JSON, attempting to parse
+2025-05-17 00:56:52,513 - INFO - Parsing text response into JSON
+2025-05-17 00:56:52,513 - DEBUG - Raw response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 7,
+    "nhan_xet": "Thông tin cá nhân khá đầy đủ, bao gồm tên, số điện thoại, email, GitHub và LinkedIn. Email sử dụng định dạng của trường đại học, điều này khá chuyên nghiệp trong bối cảnh ứng viên là sinh viên. Tuy nhiên, nên thay thế bằng email cá nhân chuẩn hơn như ten.ho@gmail.com để tạo ấn tượng chuyên nghiệp hơn trong các ứng tuyển công việc.  Thiếu địa chỉ đầy đủ, điều này có thể gây khó khăn cho nhà tuyển dụng nếu muốn liên hệ trực tiếp.  ...
+2025-05-17 00:56:52,514 - DEBUG - Extracted skills: ['python', 'java', 'python'], projects: ['hardware project'], certifications: ['toeic']
+2025-05-17 00:56:52,515 - DEBUG - Extracted section 'thong_tin_ca_nhan': ...
+2025-05-17 00:56:52,515 - WARNING - No content extracted for section 'thong_tin_ca_nhan', using default
+2025-05-17 00:56:52,515 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 00:56:52,515 - DEBUG - Positive keyword 'linkedin' found, score +1
+2025-05-17 00:56:52,515 - DEBUG - Positive keyword 'email' found, score +1
+2025-05-17 00:56:52,515 - DEBUG - Negative keyword 'icon' found, score -1
+2025-05-17 00:56:52,516 - DEBUG - Text length < 100, score -1
+2025-05-17 00:56:52,516 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:56:52,516 - DEBUG - Extracted section 'muc_tieu_nghe_nghiep': ...
+2025-05-17 00:56:52,516 - WARNING - No content extracted for section 'muc_tieu_nghe_nghiep', using default
+2025-05-17 00:56:52,516 - DEBUG - Extracted section 'trinh_do_hoc_van': ...
+2025-05-17 00:56:52,516 - WARNING - No content extracted for section 'trinh_do_hoc_van', using default
+2025-05-17 00:56:52,517 - DEBUG - Positive keyword 'gpa' found, score +1
+2025-05-17 00:56:52,517 - DEBUG - Positive keyword 'thành tích' found, score +1
+2025-05-17 00:56:52,517 - DEBUG - Negative keyword 'thiếu' found, score -1
+2025-05-17 00:56:52,517 - DEBUG - Text length < 100, score -1
+2025-05-17 00:56:52,517 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:56:52,518 - DEBUG - Extracted section 'ky_nang': ...
+2025-05-17 00:56:52,518 - WARNING - No content extracted for section 'ky_nang', using default
+2025-05-17 00:56:52,518 - DEBUG - Positive keyword 'cụ thể' found, score +1
+2025-05-17 00:56:52,518 - DEBUG - Text length < 100, score -1
+2025-05-17 00:56:52,518 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:56:52,519 - DEBUG - Extracted section 'kinh_nghiem_lam_viec': ...
+2025-05-17 00:56:52,519 - WARNING - No content extracted for section 'kinh_nghiem_lam_viec', using default
+2025-05-17 00:56:52,519 - DEBUG - Positive keyword 'github' found, score +1
+2025-05-17 00:56:52,519 - DEBUG - Negative keyword 'sơ sài' found, score -1
+2025-05-17 00:56:52,519 - DEBUG - Text length < 100, score -1
+2025-05-17 00:56:52,519 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:56:52,520 - DEBUG - Extracted section 'kien_thuc_diem_manh': ...
+2025-05-17 00:56:52,520 - WARNING - No content extracted for section 'kien_thuc_diem_manh', using default
+2025-05-17 00:56:52,520 - DEBUG - Extracted section 'ngon_ngu_va_cach_dien_dat': ...
+2025-05-17 00:56:52,520 - WARNING - No content extracted for section 'ngon_ngu_va_cach_dien_dat', using default
+2025-05-17 00:56:52,520 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 00:56:52,520 - DEBUG - Positive keyword 'toeic' found, score +1
+2025-05-17 00:56:52,520 - DEBUG - Positive keyword 'chính xác' found, score +1
+2025-05-17 00:56:52,521 - DEBUG - Text length < 100, score -1
+2025-05-17 00:56:52,521 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 00:56:52,521 - DEBUG - Extracted section 'so_thich': ...
+2025-05-17 00:56:52,521 - WARNING - No content extracted for section 'so_thich', using default
+2025-05-17 00:56:52,521 - DEBUG - Extracted section 'danh_gia_tong_the': ...
+2025-05-17 00:56:52,521 - WARNING - No content extracted for section 'danh_gia_tong_the', using default
+2025-05-17 00:56:52,521 - DEBUG - Job roles: ['Phát triển phần mềm - Kinh nghiệm với hardware project.']
+2025-05-17 00:56:52,522 - DEBUG - Average score: 6.4
+2025-05-17 00:56:52,522 - INFO - Parsing completed successfully
+2025-05-17 00:56:52,522 - INFO - Analysis completed, result URL: http://localhost:5000/results/277498d6-25b9-48b8-a922-adaadb04c990
+2025-05-17 00:56:52,522 - INFO - 127.0.0.1 - - [17/May/2025 00:56:52] "POST /upload HTTP/1.1" 200 -
+2025-05-17 00:56:52,529 - INFO - Returning results for ID: 277498d6-25b9-48b8-a922-adaadb04c990
+2025-05-17 00:56:52,531 - INFO - 127.0.0.1 - - [17/May/2025 00:56:52] "GET /results/277498d6-25b9-48b8-a922-adaadb04c990 HTTP/1.1" 200 -
+2025-05-17 07:41:08,064 - INFO - Starting Flask server on http://localhost:5000
+2025-05-17 07:41:08,093 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.85.59:5000
+2025-05-17 07:41:08,094 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 07:52:49,088 - INFO - Starting Flask server on http://localhost:5000
+2025-05-17 07:52:49,107 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.85.59:5000
+2025-05-17 07:52:49,107 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 07:52:58,740 - INFO - Processing uploaded file: CV Le Minh Kha - BUSINESS ANALYST (1).pdf
+2025-05-17 07:52:58,740 - INFO - Extracting text from uploaded PDF
+2025-05-17 07:52:58,771 - DEBUG - Extracted PDF text: Le Minh Kha
+IT BUSINESS ANALYST
+PROFILE
+
+21/08/2004
+
+0797786506
+
+www.linkedin.com/in/lmikha 
+✉
+khale7695@gmail.com
+
+Thu Duc District, Ho Chi Minh 
+City
+SKILLS
+BUSINESS & PROCESS ANALYSIS
+Level: In...
+2025-05-17 07:52:58,774 - INFO - Initializing Gemini 1.5 Flash API
+2025-05-17 07:52:58,775 - INFO - Sending CV analysis request to Gemini 1.5 Flash API
+2025-05-17 07:53:22,604 - DEBUG - API response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 6,
+    "nhan_xet": "Thông tin cá nhân khá đầy đủ, bao gồm tên, số điện thoại, email, LinkedIn. Tuy nhiên, email chưa chuyên nghiệp (khale7695@gmail.com nên thay bằng le.kha@gmail.com hoặc tương tự). Thiếu GitHub và portfolio cá nhân, đây là điểm trừ khá lớn, đặc biệt đối với ứng viên theo đuổi ngành IT.  Địa chỉ nhà ở nên được trình bày rõ ràng hơn, tránh dùng từ viết tắt.  Tóm tắt cá nhân (Profile) quá dài, thiếu tính súc tích và không gây ấn tượng...
+2025-05-17 07:53:22,606 - WARNING - API returned text instead of JSON, attempting to parse
+2025-05-17 07:53:22,607 - INFO - Parsing text response into JSON
+2025-05-17 07:53:22,607 - DEBUG - Raw response: ```json
+{
+  "thong_tin_ca_nhan": {
+    "diem": 6,
+    "nhan_xet": "Thông tin cá nhân khá đầy đủ, bao gồm tên, số điện thoại, email, LinkedIn. Tuy nhiên, email chưa chuyên nghiệp (khale7695@gmail.com nên thay bằng le.kha@gmail.com hoặc tương tự). Thiếu GitHub và portfolio cá nhân, đây là điểm trừ khá lớn, đặc biệt đối với ứng viên theo đuổi ngành IT.  Địa chỉ nhà ở nên được trình bày rõ ràng hơn, tránh dùng từ viết tắt.  Tóm tắt cá nhân (Profile) quá dài, thiếu tính súc tích và không gây ấn tượng...
+2025-05-17 07:53:22,608 - DEBUG - Extracted skills: ['trello', 'figma', 'draw.io', 'trello', 'sql', 'excel', 'sql', 'sql'], projects: ['• project', 'jewelry store management system', 'jewelry store management system'], certifications: ['google ai essentials']
+2025-05-17 07:53:22,609 - DEBUG - Extracted section 'thong_tin_ca_nhan': ...
+2025-05-17 07:53:22,615 - WARNING - No content extracted for section 'thong_tin_ca_nhan', using default
+2025-05-17 07:53:22,616 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 07:53:22,616 - DEBUG - Positive keyword 'linkedin' found, score +1
+2025-05-17 07:53:22,616 - DEBUG - Text length < 100, score -1
+2025-05-17 07:53:22,617 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 07:53:22,617 - DEBUG - Extracted section 'muc_tieu_nghe_nghiep': ...
+2025-05-17 07:53:22,617 - WARNING - No content extracted for section 'muc_tieu_nghe_nghiep', using default
+2025-05-17 07:53:22,618 - DEBUG - Extracted section 'trinh_do_hoc_van': ...
+2025-05-17 07:53:22,618 - WARNING - No content extracted for section 'trinh_do_hoc_van', using default
+2025-05-17 07:53:22,618 - DEBUG - Positive keyword 'gpa' found, score +1
+2025-05-17 07:53:22,618 - DEBUG - Positive keyword 'thành tích' found, score +1
+2025-05-17 07:53:22,619 - DEBUG - Negative keyword 'thiếu' found, score -1
+2025-05-17 07:53:22,619 - DEBUG - Text length < 100, score -1
+2025-05-17 07:53:22,619 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 07:53:22,620 - DEBUG - Extracted section 'ky_nang': ...
+2025-05-17 07:53:22,620 - WARNING - No content extracted for section 'ky_nang', using default
+2025-05-17 07:53:22,620 - DEBUG - Positive keyword 'cụ thể' found, score +1
+2025-05-17 07:53:22,621 - DEBUG - Positive keyword 'trello' found, score +1
+2025-05-17 07:53:22,621 - DEBUG - Positive keyword 'figma' found, score +1
+2025-05-17 07:53:22,621 - DEBUG - Positive keyword 'sql' found, score +1
+2025-05-17 07:53:22,621 - DEBUG - Positive keyword 'excel' found, score +1
+2025-05-17 07:53:22,621 - DEBUG - Text length < 100, score -1
+2025-05-17 07:53:22,622 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 07:53:22,622 - DEBUG - Extracted section 'kinh_nghiem_lam_viec': ...
+2025-05-17 07:53:22,622 - WARNING - No content extracted for section 'kinh_nghiem_lam_viec', using default
+2025-05-17 07:53:22,622 - DEBUG - Positive keyword 'github' found, score +1
+2025-05-17 07:53:22,622 - DEBUG - Negative keyword 'sơ sài' found, score -1
+2025-05-17 07:53:22,623 - DEBUG - Text length < 100, score -1
+2025-05-17 07:53:22,623 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 07:53:22,623 - DEBUG - Extracted section 'kien_thuc_diem_manh': ...
+2025-05-17 07:53:22,623 - WARNING - No content extracted for section 'kien_thuc_diem_manh', using default
+2025-05-17 07:53:22,624 - DEBUG - Extracted section 'ngon_ngu_va_cach_dien_dat': ...
+2025-05-17 07:53:22,624 - WARNING - No content extracted for section 'ngon_ngu_va_cach_dien_dat', using default
+2025-05-17 07:53:22,624 - DEBUG - Positive keyword 'chuyên nghiệp' found, score +1
+2025-05-17 07:53:22,624 - DEBUG - Positive keyword 'chính xác' found, score +1
+2025-05-17 07:53:22,625 - DEBUG - Text length < 100, score -1
+2025-05-17 07:53:22,625 - DEBUG - GPA or certification found in CV, score +1
+2025-05-17 07:53:22,625 - DEBUG - Extracted section 'so_thich': ...
+2025-05-17 07:53:22,625 - WARNING - No content extracted for section 'so_thich', using default
+2025-05-17 07:53:22,626 - DEBUG - Extracted section 'danh_gia_tong_the': ...
+2025-05-17 07:53:22,626 - WARNING - No content extracted for section 'danh_gia_tong_the', using default
+2025-05-17 07:53:22,627 - DEBUG - Average score: 7.0
+2025-05-17 07:53:22,627 - INFO - Parsing completed successfully
+2025-05-17 07:53:22,627 - INFO - Analysis completed, result URL: http://localhost:5000/results/d73d51a3-2e7c-4507-898b-a2ccc018a209
+2025-05-17 07:53:22,628 - INFO - 127.0.0.1 - - [17/May/2025 07:53:22] "POST /upload HTTP/1.1" 200 -
+2025-05-17 07:53:22,634 - INFO - Returning results for ID: d73d51a3-2e7c-4507-898b-a2ccc018a209
+2025-05-17 07:53:22,635 - INFO - 127.0.0.1 - - [17/May/2025 07:53:22] "GET /results/d73d51a3-2e7c-4507-898b-a2ccc018a209 HTTP/1.1" 200 -
